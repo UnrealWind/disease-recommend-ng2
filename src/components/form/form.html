@@ -1,0 +1,48 @@
+<!--文本输入-->
+<ion-list *ngIf="inputData.type=='text'">
+  <ion-item >
+    <ion-label color="primary" floating>{{inputData.label}}</ion-label>
+    <ion-input [(ngModel)]="inputData.value"></ion-input>
+  </ion-item>
+</ion-list>
+
+<!--单选-->
+<ion-list *ngIf="inputData.type=='radio'" radio-group [(ngModel)]="inputData.value">
+  <ion-list-header>
+    {{inputData.label}}
+  </ion-list-header>
+  <ion-item *ngFor="let opt of inputData.options">
+    <ion-label>{{opt.label}}</ion-label>
+    <ion-radio value="{{opt.value}}"></ion-radio>
+  </ion-item>
+</ion-list>
+
+<!--多选-->
+<ion-list *ngIf="inputData.type=='checkbox'">
+  <ion-list-header>
+    {{inputData.label}}
+  </ion-list-header>
+  <ion-item *ngFor="let opt of inputData.options;">
+    <ion-label>{{opt.label}}</ion-label>
+    <ion-checkbox [(ngModel)]="inputData.value[opt.label]"></ion-checkbox>
+  </ion-item>
+</ion-list>
+
+<!--下拉菜单-->
+<ion-list  *ngIf="inputData.type=='select'">
+  <ion-item>
+    <ion-label>{{inputData.label}}</ion-label>
+    <ion-select [(ngModel)]="inputData.value" interface="action-sheet">
+      <ion-option *ngFor="let opt of inputData.options;" value="{{opt.value}}">{{opt.label}}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+<!--时间插件-->
+<ion-list  *ngIf="inputData.type=='date'">
+  <ion-item>
+    <ion-label>{{inputData.label}}</ion-label>
+    <ion-datetime displayFormat="{{inputData.format}}" [(ngModel)]="inputData.value"></ion-datetime>
+  </ion-item>
+</ion-list>
+

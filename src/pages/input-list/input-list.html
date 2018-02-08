@@ -1,0 +1,11 @@
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-icon name="ios-rose" color="secondary"></ion-icon>{{formData.label}}
+    </ion-list-header>
+    <form-group *ngFor="let inputData of formData.inputs" [inputData]="inputData"></form-group>
+    <div padding>
+      <button ion-button block (click)="update()" >提交</button>
+    </div>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,32 @@
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{user.logo}}">
+      </ion-avatar>
+      <h2>{{user.name}}</h2>
+      <p>{{user.authority}}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-icon name="md-desktop" color="danger"></ion-icon>录入
+      <button ion-button outline item-end (click)="viewRecommend()">查看推荐</button>
+    </ion-list-header>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 *ngFor="let formData of formDatas;let idx = index" (click)="inputList(formData)"
+                 [ngClass]="{noBorder:idx%3 == 0}">
+          <ion-icon name="{{formData.icon}}" color="primary"></ion-icon>
+          <ion-label>{{formData.label}}</ion-label>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+
+</ion-content>
