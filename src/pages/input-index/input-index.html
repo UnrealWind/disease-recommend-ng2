@@ -17,8 +17,9 @@
     </ion-list-header>
 
     <ion-grid>
-      <ion-row>
-        <ion-col col-4 *ngFor="let formData of formDatas;let idx = index" (click)="inputList(formData)"
+      <!--两个ng相关组件不能够出现在一个ele上-->
+      <ion-row *ngIf="formDatas">
+        <ion-col col-4 *ngFor="let formData of formDatas.data;let idx = index" (click)="inputList(formData)"
                  [ngClass]="{noBorder:idx%3 == 0}">
           <ion-icon name="{{formData.icon}}" color="primary"></ion-icon>
           <ion-label>{{formData.label}}</ion-label>

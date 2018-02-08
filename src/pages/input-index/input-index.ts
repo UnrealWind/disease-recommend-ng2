@@ -34,8 +34,8 @@ export class InputIndexPage {
   getFormDatas (){
     this.Http.get('../../assets/data/formDatas.json',{})
       .subscribe((res:Response)=>{
-      console.log(res)
-        this.formDatas = res.data;
+        //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
+        this.formDatas = res;
       })
   }
 
