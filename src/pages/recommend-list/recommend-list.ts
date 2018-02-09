@@ -18,8 +18,7 @@ export class RecommendListPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public modalCtrl:ModalController,
-              public Http:HttpClient,
-              public httpParams:HttpParams) {
+              public Http:HttpClient) {
     this.formDatas = this.navParams.data.formDatas;
     this.params = {
       patiId:611959,
@@ -92,6 +91,7 @@ export class RecommendListPage {
     }
   }
 
+  //这个ng是angularjs用于自己掌握数据初始化渲染的入口，只执行一次的，慢于constructor,后者是原生es6
   ngOnInit(): void {
     this.init();
     this.getRecommend();

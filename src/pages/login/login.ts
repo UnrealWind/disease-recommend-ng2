@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 import { TabsPage} from "../tabs/tabs";
+import { ConstantProvider} from "../../providers/constant/constant";
 
 @IonicPage()
 @Component({
@@ -13,13 +14,14 @@ export class LoginPage {
   passWord;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private Http:HttpClient) {
+              private Http:HttpClient,
+              public constant:ConstantProvider) {
   }
 
   login() {
     console.log(this.uesrName,this.passWord);
 
-    this.Http.post('http://192.168.1.161:8080/recommend/login',{})
+    this.Http.post(this.constant.BackstageUrl+'login',{})
       .subscribe((res:Response)=>{
         console.log(res)
       })

@@ -46,6 +46,7 @@ import { TypicalRecordPage} from "../pages/typical-record/typical-record";
 import { FormComponent } from "../components/form/form"
 //推荐理由
 import { RecommendResonComponent} from "../components/recommend-reson/recommend-reson";
+import { ConstantProvider } from '../providers/constant/constant';
 
 @NgModule({
   declarations: [
@@ -107,7 +108,8 @@ import { RecommendResonComponent} from "../components/recommend-reson/recommend-
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true},
+    ConstantProvider
   ]
 })
 export class AppModule {
