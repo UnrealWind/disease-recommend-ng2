@@ -15,8 +15,11 @@ export class Interceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
     const Req = req.clone({
-      headers: req.headers.set('token', 'asdf'),
-      params:req.params.set('params','asdf')
+
+      //以后可能会将eu,ep放在header里,
+      /*headers: req.headers.set('token', 'asdf'),*/
+      params:req.params.set('eu','c4843ad54897b3f8a45de8807a89bc76')
+        .set('ep','c4843ad54897b3f8a45de8807a89bc76')
     });
 
     return next

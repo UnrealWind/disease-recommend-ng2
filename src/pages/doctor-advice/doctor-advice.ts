@@ -7,9 +7,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'doctor-advice.html',
 })
 export class DoctorAdvicePage {
-
+  entityDoctor;
   constructor(public navCtrl: NavController,
               public navParams: NavParams) {
+    this.entityDoctor = this.navParams.data;
   }
 
   back() {

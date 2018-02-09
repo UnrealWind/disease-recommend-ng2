@@ -19,7 +19,7 @@ export class LoginPage {
   login() {
     console.log(this.uesrName,this.passWord);
 
-    this.Http.get('../../assets/data/formDatas.json',{})
+    this.Http.post('http://192.168.1.161:8080/recommend/login',{})
       .subscribe((res:Response)=>{
         console.log(res)
       })
