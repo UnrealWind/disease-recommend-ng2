@@ -84,9 +84,9 @@ export class RecommendDetailPage {
         break;
       case '6':this.navCtrl.push(PlanLiteraturePage,this.params);
         break;
-      case '8':this.navCtrl.push(PlanLiteraturePage,this.params);
-        break;
       case '7':this.navCtrl.push(TypicalRecordPage,this.params);
+        break;
+      case '8':this.navCtrl.push(PlanLiteraturePage,this.params);
         break;
     }
   }
