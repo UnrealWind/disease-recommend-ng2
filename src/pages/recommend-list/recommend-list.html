@@ -3,41 +3,21 @@
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>推荐方案列表
     </ion-list-header>
-    <ion-item (click)="viewRecommendDetail()">
-      <h3>ACEI/ARB+β受体阻滞剂</h3>
-      <p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>
-      <ion-note item-end>药品</ion-note>
-    </ion-item>
-    <ion-item>
-      <h3>ACEI/ARB+β受体阻滞剂</h3>
-      <p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>
-      <ion-note item-end>药品</ion-note>
-    </ion-item>
-    <ion-item>
-      <h3>ACEI/ARB+β受体阻滞剂</h3>
-      <p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>
-      <ion-note item-end>药品</ion-note>
+    <ion-item (click)="viewRecommendDetail(entity)" *ngFor="let entity of schemeList">
+      <h3>{{entity.recomName}}</h3>
+      <p>{{entity.drugNames}}</p>
+      <ion-note item-end>{{entity.type}}</ion-note>
     </ion-item>
   </ion-list>
 
   <ion-list>
     <ion-list-header>
-      <ion-icon name="md-desktop" color="danger"></ion-icon>相对禁忌
+      <ion-icon name="md-desktop" color="danger"></ion-icon>相对
     </ion-list-header>
-    <ion-item>
-      <h3>ACEI/ARB+β受体阻滞剂</h3>
-      <p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>
-      <ion-note item-end>药品</ion-note>
-    </ion-item>
-    <ion-item >
-      <h3>ACEI/ARB+β受体阻滞剂</h3>
-      <p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>
-      <ion-note item-end>药品</ion-note>
-    </ion-item >
-    <ion-item>
-      <h3>ACEI/ARB+β受体阻滞剂</h3>
-      <p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>
-      <ion-note item-end>药品</ion-note>
+    <ion-item *ngFor="let entity of relativeList">
+      <h3>{{entity.drug_name}}</h3>
+      <p>{{entity.drug_names.label}}</p>
+      <ion-note item-end>{{entity.type}}</ion-note>
     </ion-item>
   </ion-list>
 
@@ -45,42 +25,52 @@
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>绝对禁忌
     </ion-list-header>
-    <ion-item>
-      <h3>ACEI/ARB+β受体阻滞剂</h3>
-      <p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>
-      <ion-note item-end>药品</ion-note>
+    <ion-item *ngFor="let entity of absoluteList">
+      <h3>{{entity.drug_name}}</h3>
+      <p>{{entity.drug_names.label}}</p>
+      <ion-note item-end>{{entity.type}}</ion-note>
     </ion-item>
-    <ion-item>
-      <h3>ACEI/ARB+β受体阻滞剂</h3>
-      <p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>
-      <ion-note item-end>药品</ion-note>
-    </ion-item>
-    <ion-item>
-      <h3>ACEI/ARB+β受体阻滞剂</h3>
-      <p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>
-      <ion-note item-end>药品</ion-note>
-    </ion-item>
+    <!--<ion-item>-->
+      <!--<h3>ACEI/ARB+β受体阻滞剂</h3>-->
+      <!--<p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>-->
+      <!--<ion-note item-end>药品</ion-note>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<h3>ACEI/ARB+β受体阻滞剂</h3>-->
+      <!--<p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>-->
+      <!--<ion-note item-end>药品</ion-note>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<h3>ACEI/ARB+β受体阻滞剂</h3>-->
+      <!--<p>比索洛尔,美托洛尔片,美托洛尔缓释片,阿替洛尔,普萘洛尔,倍他洛尔,卡托普利,依那普利,贝那普利,赖诺普利,雷米普利,福辛普利,西拉普利,培哚普利,咪达普利,氯沙坦,缬沙坦,厄贝沙坦,替米沙坦,坎地沙坦,奥美沙坦,依普沙坦,阿利沙坦,群多普利</p>-->
+      <!--<ion-note item-end>药品</ion-note>-->
+    <!--</ion-item>-->
   </ion-list>
 
   <ion-list>
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>医嘱信息
     </ion-list-header>
-    <ion-item (click)="viewAdviceDetail()">
-      <h3>培哚普利叔丁胺片	</h3>
-      <p>剂量：4mg &nbsp;&nbsp;&nbsp; 频次2/日</p>
-      <ion-note item-end>长期</ion-note>
+    <ion-item *ngFor="let entity of doctorList" (click)="viewAdviceDetail(entity)">
+      <h3>{{entity.drugName}}	</h3>
+      <p>剂量：{{entity.doseage}}{{entity.doseUnit}} &nbsp;&nbsp;&nbsp; 频次{{entity.freq}}</p>
+      <ion-note item-end>{{entity.repeatIndicator}}</ion-note>
     </ion-item>
-    <ion-item>
-      <h3>培哚普利叔丁胺片	</h3>
-      <p>剂量：4mg &nbsp;&nbsp;&nbsp; 频次2/日</p>
-      <ion-note item-end>长期</ion-note>
-    </ion-item>
-    <ion-item>
-      <h3>培哚普利叔丁胺片	</h3>
-      <p>剂量：4mg &nbsp;&nbsp;&nbsp; 频次2/日</p>
-      <ion-note item-end>长期</ion-note>
-    </ion-item>
+    <!--<ion-item (click)="viewAdviceDetail()">-->
+    <!--<h3>培哚普利叔丁胺片	</h3>-->
+    <!--<p>剂量：4mg &nbsp;&nbsp;&nbsp; 频次2/日</p>-->
+    <!--<ion-note item-end>长期</ion-note>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+    <!--<h3>培哚普利叔丁胺片	</h3>-->
+    <!--<p>剂量：4mg &nbsp;&nbsp;&nbsp; 频次2/日</p>-->
+    <!--<ion-note item-end>长期</ion-note>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+    <!--<h3>培哚普利叔丁胺片	</h3>-->
+    <!--<p>剂量：4mg &nbsp;&nbsp;&nbsp; 频次2/日</p>-->
+    <!--<ion-note item-end>长期</ion-note>-->
+    <!--</ion-item>-->
 
   </ion-list>
 </ion-content>
