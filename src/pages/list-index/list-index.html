@@ -1,40 +1,9 @@
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf="recordList">
     <ion-list-header>患者列表</ion-list-header>
     <ion-searchbar placeholder="请输入患者姓名或id"></ion-searchbar>
-    <ion-item (click)="inputIndex(1)">
-      <ion-avatar item-start>
-        <img src="./assets/imgs/logo-1.jpg">
-      </ion-avatar>
-      <h3>赵日天 Y2849812</h3>
-      <p>慢性阻塞性肺疾病(COPD)</p>
-      <ion-note item-end>2017-07-20 15:36:51</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="./assets/imgs/logo-1.jpg">
-      </ion-avatar>
-      <h3>赵日天 Y2849812</h3>
-      <p>慢性阻塞性肺疾病(COPD)</p>
-      <ion-note item-end>2017-07-20 15:36:51</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="./assets/imgs/logo-1.jpg">
-      </ion-avatar>
-      <h3>赵日天 Y2849812</h3>
-      <p>慢性阻塞性肺疾病(COPD)</p>
-      <ion-note item-end>2017-07-20 15:36:51</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="./assets/imgs/logo-1.jpg">
-      </ion-avatar>
-      <h3>赵日天 Y2849812</h3>
-      <p>慢性阻塞性肺疾病(COPD)</p>
-      <ion-note item-end>2017-07-20 15:36:51</ion-note>
-    </ion-item>
-    <ion-item>
+
+    <ion-item *ngFor="let opt of recordList.result" (click)="inputIndex(1)">
       <ion-avatar item-start>
         <img src="./assets/imgs/logo-1.jpg">
       </ion-avatar>
