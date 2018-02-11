@@ -9,14 +9,18 @@ import { RecommendResonComponent} from "../../components/recommend-reson/recomme
   templateUrl: 'recommend-basic.html',
 })
 export class RecommendBasicPage {
-
+  params;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public modalCtrl: ModalController) {
+    this.params = this.navParams.data;
+  }
+
+  ngOnInit(): void {
   }
 
   viewRecommendReson(){
-    this.modalCtrl.create(RecommendResonComponent).present();
+    this.modalCtrl.create(RecommendResonComponent,this.params).present();
   }
 
   back(){

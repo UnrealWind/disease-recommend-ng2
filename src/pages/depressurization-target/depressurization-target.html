@@ -1,20 +1,12 @@
-<ion-content>
+<ion-content *ngIf="details">
   <ion-list>
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>降压目标
       <button ion-button outline item-end (click)="back()">返回</button>
     </ion-list-header>
-    <ion-item>
-      <h3>年龄小于65岁的老人</h3>
-      <p>血压应控制在140/90mmHg以内。</p>
-    </ion-item>
-    <ion-item>
-      <h3>年龄小于65岁的老人</h3>
-      <p>血压应控制在140/90mmHg以内。</p>
-    </ion-item>
-    <ion-item>
-      <h3>年龄小于65岁的老人</h3>
-      <p>血压应控制在140/90mmHg以内。</p>
+    <ion-item *ngFor="let entity of details.data">
+      <h3>{{entity.condition}}</h3>
+      <p>{{entity.result}}</p>
     </ion-item>
   </ion-list>
   <div padding>

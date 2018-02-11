@@ -14,13 +14,12 @@ import { TypicalRecordPage} from "../typical-record/typical-record";
   templateUrl: 'recommend-detail.html',
 })
 export class RecommendDetailPage {
-
-  recordId;
+  params;
   recommendLists;
   user;
   constructor(public navCtrl: NavController,
               public navParams: NavParams) {
-    this.recordId = this.navParams.data.id;
+    this.params = this.navParams.data;
 
     this.recommendLists =  [
       {
@@ -73,21 +72,21 @@ export class RecommendDetailPage {
 
   viewRecommendDetail(recommendList){
     switch (recommendList.id){
-      case '1':this.navCtrl.push(RecommendBasicPage,{ 'id': 1 });
+      case '1':this.navCtrl.push(RecommendBasicPage,this.params);
         break;
-      case '2':this.navCtrl.push(PlanIntroducePage,{ 'id': 1 });
+      case '2':this.navCtrl.push(PlanIntroducePage,this.params);
         break;
-      case '3':this.navCtrl.push(DepressurizationTargetPage,{ 'id': 1 });
+      case '3':this.navCtrl.push(DepressurizationTargetPage,this.params);
         break;
-      case '4':this.navCtrl.push(RiskFactorPage,{ 'id': 1 });
+      case '4':this.navCtrl.push(RiskFactorPage,this.params);
         break;
-      case '5':this.navCtrl.push(PlanLiteraturePage,{ 'id': 1 });
+      case '5':this.navCtrl.push(PlanLiteraturePage,this.params);
         break;
-      case '6':this.navCtrl.push(PlanLiteraturePage,{ 'id': 2 });
+      case '6':this.navCtrl.push(PlanLiteraturePage,this.params);
         break;
-      case '8':this.navCtrl.push(PlanLiteraturePage,{ 'id': 3 });
+      case '8':this.navCtrl.push(PlanLiteraturePage,this.params);
         break;
-      case '7':this.navCtrl.push(TypicalRecordPage,{ 'id': 1 });
+      case '7':this.navCtrl.push(TypicalRecordPage,this.params);
         break;
     }
   }
