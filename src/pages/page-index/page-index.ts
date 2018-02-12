@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 
 import { ListIndexPage} from "../list-index/list-index";
+import { MenusPage} from "../menus/menus";
 
 @IonicPage()
 @Component({
@@ -56,8 +57,9 @@ export class PageIndexPage {
     ];
 
   }
-  listIndex (id){
-    this.navCtrl.push(ListIndexPage,{ 'id': id })
+  listIndex (plan){
+    //this.navCtrl.push(ListIndexPage,{ 'id': id })
+    this.navCtrl.push(MenusPage,{ 'plan': plan })
   }
 
 }

@@ -14,7 +14,7 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col col-4 *ngFor="let plan of plans" (click)="listIndex(plan.id)">
+        <ion-col col-4 *ngFor="let plan of plans" (click)="listIndex(plan)">
           <ion-icon name="{{plan.icon}}" color="primary"></ion-icon>
           <ion-label>{{plan.label}}</ion-label>
         </ion-col>

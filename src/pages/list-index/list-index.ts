@@ -35,11 +35,10 @@ export class ListIndexPage {
   getRecordList (loading){
     let urlBack = 'filter_pageNo=1' +
       '&filter_pageSize=10' +
-      '&filter_disease=100037' +
+      '&filter_disease='+this.diseaseId+
       '&filter_startTime=' +
       '&filter_endTime=' +
       '&filter_search=' +
-      '&class_id=' +this.diseaseId+
       '&filter_wardId=' +
       '&filter_diagType=10003';
     this.Http.get(this.constant.BackstageUrl+'patient/list?'+urlBack,{})

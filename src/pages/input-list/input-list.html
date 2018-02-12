@@ -2,10 +2,13 @@
   <ion-list>
     <ion-list-header>
       <ion-icon name="ios-rose" color="secondary"></ion-icon>{{formData.label}}
+      <button ion-button outline item-end (click)="viewRecommend()">查看推荐</button>
     </ion-list-header>
     <form-group *ngFor="let inputData of formData.inputs" [inputData]="inputData"></form-group>
+
+    <!-- 暂时不要这个提交了
     <div padding>
       <button ion-button block (click)="update()" >提交</button>
-    </div>
+    </div>-->
   </ion-list>
 </ion-content>

@@ -16,6 +16,8 @@ import { LoginPage} from "../pages/login/login";
 import { TabsPage } from '../pages/tabs/tabs';
 //首页
 import { PageIndexPage} from "../pages/page-index/page-index";
+//左侧切换
+import { MenusPage } from "../pages/menus/menus";
 //病历列表页面
 import { ListIndexPage } from '../pages/list-index/list-index'
 //病历录入模块列表页面
@@ -67,11 +69,13 @@ import { ConstantProvider } from '../providers/constant/constant';
     DepressurizationTargetPage,
     RiskFactorPage,
     PlanLiteraturePage,
-    TypicalRecordPage
+    TypicalRecordPage,
+    MenusPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp,{
+      menuType: 'push',
       iconMode: 'ios',//安卓icon强制使用ios的icon以及样式
       mode: 'ios',//样式强制使用ios样式
     }),
@@ -102,7 +106,8 @@ import { ConstantProvider } from '../providers/constant/constant';
     DepressurizationTargetPage,
     RiskFactorPage,
     PlanLiteraturePage,
-    TypicalRecordPage
+    TypicalRecordPage,
+    MenusPage
   ],
   providers: [
     StatusBar,
