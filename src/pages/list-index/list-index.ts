@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams ,LoadingController,FabContainer } f
 import { HttpClient } from "@angular/common/http";
 import { ConstantProvider} from "../../providers/constant/constant";
 
-import { InputIndexPage} from "../input-index/input-index";
+//import { InputIndexPage} from "../input-index/input-index";
+import { InputListPage} from "../input-list/input-list";
 
 @IonicPage()
 @Component({
@@ -47,9 +48,8 @@ export class ListIndexPage {
       })
   }
 
-  //test svn
   inputIndex(id){
-    this.navCtrl.push(InputIndexPage,{ 'id': id });
+    this.navCtrl.push(InputListPage,{ 'id': id });
   }
 
 

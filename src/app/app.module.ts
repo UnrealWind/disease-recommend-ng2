@@ -17,11 +17,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 //首页
 import { PageIndexPage} from "../pages/page-index/page-index";
 //左侧切换
-import { MenusPage } from "../pages/menus/menus";
+//import { MenusPage } from "../pages/menus/menus";
 //病历列表页面
 import { ListIndexPage } from '../pages/list-index/list-index'
 //病历录入模块列表页面
-import { InputIndexPage} from "../pages/input-index/input-index";
+//import { InputIndexPage} from "../pages/input-index/input-index";
 //病历录入录入页面
 import { InputListPage} from "../pages/input-list/input-list";
 //推荐列表
@@ -57,7 +57,7 @@ import { ConstantProvider } from '../providers/constant/constant';
     ListIndexPage,
     TabsPage,
     PageIndexPage,
-    InputIndexPage,
+    //InputIndexPage,
     FormComponent,
     InputListPage,
     RecommendListPage,
@@ -70,7 +70,7 @@ import { ConstantProvider } from '../providers/constant/constant';
     RiskFactorPage,
     PlanLiteraturePage,
     TypicalRecordPage,
-    MenusPage
+    //MenusPage
   ],
   imports: [
     BrowserModule,
@@ -94,7 +94,7 @@ import { ConstantProvider } from '../providers/constant/constant';
     ListIndexPage,
     TabsPage,
     PageIndexPage,
-    InputIndexPage,
+    //InputIndexPage,
     FormComponent,
     InputListPage,
     RecommendListPage,
@@ -107,7 +107,7 @@ import { ConstantProvider } from '../providers/constant/constant';
     RiskFactorPage,
     PlanLiteraturePage,
     TypicalRecordPage,
-    MenusPage
+    //MenusPage
   ],
   providers: [
     StatusBar,
