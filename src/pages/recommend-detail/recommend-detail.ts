@@ -71,6 +71,7 @@ export class RecommendDetailPage {
   }
 
   viewRecommendDetail(recommendList){
+    console.log(this.params,99)
     switch (recommendList.id){
       case '1':this.navCtrl.push(RecommendBasicPage,this.params);
         break;
@@ -80,13 +81,19 @@ export class RecommendDetailPage {
         break;
       case '4':this.navCtrl.push(RiskFactorPage,this.params);
         break;
-      case '5':this.navCtrl.push(PlanLiteraturePage,this.params);
+      case '5':
+        this.params.tabType = 'plan';
+        this.navCtrl.push(PlanLiteraturePage,this.params);
         break;
-      case '6':this.navCtrl.push(PlanLiteraturePage,this.params);
+      case '6':
+        this.params.tabType = 'drug';
+        this.navCtrl.push(PlanLiteraturePage,this.params);
         break;
       case '7':this.navCtrl.push(TypicalRecordPage,this.params);
         break;
-      case '8':this.navCtrl.push(PlanLiteraturePage,this.params);
+      case '8':
+        this.params.tabType = 'source';
+        this.navCtrl.push(PlanLiteraturePage,this.params);
         break;
     }
   }

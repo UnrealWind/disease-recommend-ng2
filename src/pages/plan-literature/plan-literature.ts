@@ -19,10 +19,23 @@ export class PlanLiteraturePage {
   }
 
   ngOnInit(): void{
-    this.Http.get(this.Constant.BackstageUrl+'hbp/scheme/literature?id='+this.params.id+'&uuid='+this.params.uuid)
-      .subscribe((res:Response)=>{
-        this.details = res;
-      })
+    if(this.params.tabType == 'plan'){
+      this.Http.get(this.Constant.BackstageUrl+'hbp/scheme/literature?id='+this.params.id+'&uuid='+this.params.uuid)
+        .subscribe((res:Response)=>{
+          this.details = res;
+        })
+    }else if(this.params.tabType == 'drug'){
+      this.Http.get(this.Constant.BackstageUrl+'hbp/drug/literature?id='+this.params.id+'&uuid='+this.params.uuid)
+        .subscribe((res:Response)=>{
+          this.details = res;
+        })
+    }
+    else if(this.params.tabType == 'source'){
+      this.Http.get(this.Constant.BackstageUrl+'hbp/guide?id='+this.params.id+'&uuid='+this.params.uuid)
+        .subscribe((res:Response)=>{
+          this.details = res;
+        })
+    }
   }
 
   back(){

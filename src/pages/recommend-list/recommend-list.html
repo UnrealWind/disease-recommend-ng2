@@ -14,7 +14,7 @@
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>相对
     </ion-list-header>
-    <ion-item *ngFor="let entity of relativeList">
+    <ion-item *ngFor="let entity of relativeList" (click)="viewRecommendDetail(entity)" >
       <h3>{{entity.drug_name}}</h3>
       <p>{{entity.drug_names.label}}</p>
       <ion-note item-end>{{entity.type}}</ion-note>
@@ -25,7 +25,7 @@
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>绝对禁忌
     </ion-list-header>
-    <ion-item *ngFor="let entity of absoluteList">
+    <ion-item *ngFor="let entity of absoluteList" (click)="viewRecommendDetail(entity)" >
       <h3>{{entity.drug_name}}</h3>
       <p>{{entity.drug_names.label}}</p>
       <ion-note item-end>{{entity.type}}</ion-note>
