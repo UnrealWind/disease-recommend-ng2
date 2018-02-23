@@ -2,48 +2,48 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <h2>培哚普利叔丁胺片</h2>
+      <h2>{{entity.drugName}}</h2>
     </ion-item>
 
     <ion-item >
       剂量
       <ion-note item-end>
-        4mg
+        {{entity.doseage}}{{entity.doseUnit}}
       </ion-note>
     </ion-item>
 
     <ion-item >
       频次
       <ion-note item-end>
-        2/日
+        {{entity.freq}}
       </ion-note>
     </ion-item>
 
     <ion-item >
       途径
       <ion-note item-end>
-        口服
+        {{entity.administrationId}}
       </ion-note>
     </ion-item>
 
     <ion-item >
       医嘱类型
       <ion-note item-end>
-        长期
+        {{entity.repeatIndicator}}
       </ion-note>
     </ion-item>
 
     <ion-item >
       开始时间
       <ion-note item-end>
-        2017-08-18 22:12:00.0
+        {{entity.startDateTime}}
       </ion-note>
     </ion-item>
 
     <ion-item >
       结束时间
       <ion-note item-end>
-        2017-08-21 15:40:05.0
+        {{entity.stopDateTime}}
       </ion-note>
     </ion-item>
 
