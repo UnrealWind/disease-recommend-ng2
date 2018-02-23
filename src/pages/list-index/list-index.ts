@@ -47,6 +47,7 @@ export class ListIndexPage {
       })
   }
 
+  //test svn
   inputIndex(id){
     this.navCtrl.push(InputIndexPage,{ 'id': id });
   }
