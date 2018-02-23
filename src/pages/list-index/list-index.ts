@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,LoadingController,FabContainer } from 'ionic-angular';
 import { HttpClient } from "@angular/common/http";
 import { ConstantProvider} from "../../providers/constant/constant";
 
@@ -11,15 +11,14 @@ import { InputIndexPage} from "../input-index/input-index";
   templateUrl: 'list-index.html',
 })
 export class ListIndexPage {
-  diseaseId;
+  plan;
   recordList;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private Http:HttpClient,
               public constant:ConstantProvider,
               public loadingCtrl:LoadingController) {
-    this.diseaseId = this.navParams.data.id;
-
+    this.plan = this.navParams.data.plan;
   }
 
   ngOnInit(): void {
@@ -35,7 +34,7 @@ export class ListIndexPage {
   getRecordList (loading){
     let urlBack = 'filter_pageNo=1' +
       '&filter_pageSize=10' +
-      '&filter_disease='+this.diseaseId+
+      '&filter_disease='+this.plan.id+
       '&filter_startTime=' +
       '&filter_endTime=' +
       '&filter_search=' +
@@ -49,7 +48,8 @@ export class ListIndexPage {
   }
 
   inputIndex(id){
-    this.navCtrl.push(InputIndexPage,{ 'id': id })
+    this.navCtrl.push(InputIndexPage,{ 'id': id });
   }
+
 
 }

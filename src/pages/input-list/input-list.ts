@@ -1,5 +1,5 @@
 import { Component,ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams,Nav } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Nav,FabContainer } from 'ionic-angular';
 import { RecommendListPage} from "../recommend-list/recommend-list";
 
 @IonicPage()
@@ -30,4 +30,13 @@ export class InputListPage {
     this.navCtrl.push(RecommendListPage,{ 'formDatas': this.formDatas });
   }
 
+
+  openFAB() {
+    console.log('Clicked open social menu');
+  }
+
+  goHref(network: string, fab: FabContainer) {
+    console.log('Share in ' + network);
+    fab.close();
+  }
 }

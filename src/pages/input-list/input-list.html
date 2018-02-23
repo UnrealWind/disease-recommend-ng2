@@ -1,4 +1,26 @@
 <ion-content>
+
+  <ion-fab top right edge #fab1>
+    <button ion-fab mini (click)="openFAB()"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab (click)="goHref('googleplus', fab1)">
+        基本心思
+      </button>
+      <button ion-fab (click)="goHref('googleplus', fab1)">
+        基本心思
+      </button>
+      <button ion-fab (click)="goHref('googleplus', fab1)">
+        基本心思
+      </button>
+      <button ion-fab (click)="goHref('googleplus', fab1)">
+        基本心思
+      </button>
+      <button ion-fab (click)="goHref('googleplus', fab1)">
+        基本心思
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
   <ion-list>
     <ion-list-header>
       <ion-icon name="ios-rose" color="secondary"></ion-icon>{{formData.label}}

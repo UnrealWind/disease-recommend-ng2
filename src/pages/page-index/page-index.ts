@@ -58,8 +58,8 @@ export class PageIndexPage {
 
   }
   listIndex (plan){
-    //this.navCtrl.push(ListIndexPage,{ 'id': id })
-    this.navCtrl.push(MenusPage,{ 'plan': plan })
+    this.navCtrl.push(ListIndexPage,{ 'plan': plan })
+    //this.navCtrl.push(MenusPage,{ 'plan': plan })
   }
 
 }
