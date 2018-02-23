@@ -71,7 +71,6 @@ export class RecommendDetailPage {
   }
 
   viewRecommendDetail(recommendList){
-    console.log(this.params,99)
     switch (recommendList.id){
       case '1':this.navCtrl.push(RecommendBasicPage,this.params);
         break;

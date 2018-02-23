@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController,LoadingController } from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 import { ConstantProvider } from "../../providers/constant/constant"
 
@@ -24,7 +24,8 @@ export class RecommendListPage {
               public navParams: NavParams,
               public modalCtrl:ModalController,
               public Http:HttpClient,
-              public Constant:ConstantProvider) {
+              public Constant:ConstantProvider,
+              public loadingCtrl:LoadingController) {
     this.formDatas = this.navParams.data.formDatas;
     this.params = {
       patiId:611959,
@@ -99,8 +100,13 @@ export class RecommendListPage {
 
   //这个ng是angularjs用于自己掌握数据初始化渲染的入口，只执行一次的，慢于constructor,后者是原生es6
   ngOnInit(): void {
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: '加载中……'
+    });
+    loading.present();
     this.getDoctor();
-    this.getRecommend();
+    this.getRecommend(loading);
   }
 
   getDoctor (){
@@ -121,7 +127,7 @@ export class RecommendListPage {
       })
   }
 
-  getRecommend (){
+  getRecommend (loading){
     var url = this.Constant.BackstageUrl + 'hbp/recommendation?';
     this.Http.post(url+'class_id='+this.params.classId,this.recommend)
       .subscribe((res:Response)=>{
@@ -129,6 +135,8 @@ export class RecommendListPage {
         this.schemeList = this.filterScheme(this.recommendList.data.recom_scheme);//推荐方案列表
         this.absoluteList = this.recommendList.data.absolute_contraindication;//绝对列表
         this.relativeList = this.recommendList.data.relative_contraindication;//相对列表
+
+        loading.dismiss();
       })
   }
 

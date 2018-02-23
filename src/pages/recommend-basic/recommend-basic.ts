@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController,LoadingController } from 'ionic-angular';
 
 import { RecommendResonComponent} from "../../components/recommend-reson/recommend-reson";
 
@@ -12,7 +12,8 @@ export class RecommendBasicPage {
   params;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              public loadingCtrl:LoadingController) {
     this.params = this.navParams.data;
   }
 
