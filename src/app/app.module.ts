@@ -44,7 +44,6 @@ import { PlanLiteraturePage} from "../pages/plan-literature/plan-literature";
 //典型病例
 import { TypicalRecordPage} from "../pages/typical-record/typical-record";
 
-
 //表单组件
 import { FormComponent } from "../components/form/form"
 //推荐理由

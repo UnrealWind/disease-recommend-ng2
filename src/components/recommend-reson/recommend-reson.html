@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf="details">
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>推荐理由
       <button ion-button outline item-end (click)="back()">返回</button>

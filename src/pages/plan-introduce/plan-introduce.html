@@ -1,6 +1,6 @@
-<ion-content *ngIf="details">
-  <div *ngFor="let entity of details.data;let idx = index;">
-    <ion-list>
+<ion-content>
+  <div *ngIf="details">
+    <ion-list *ngFor="let entity of details.data;let idx = index;">
       <ion-list-header>
         <ion-icon name="md-desktop" color="danger"></ion-icon>{{entity.drugClassName}}
         <button ion-button outline item-end (click)="back()" *ngIf="idx == 0">返回</button>

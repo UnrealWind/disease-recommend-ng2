@@ -7,7 +7,7 @@
       <button ion-button outline item-end (click)="back()">返回</button>
     </ion-list-header>
 
-    <ion-grid>
+    <ion-grid *ngIf="recommendLists">
       <ion-row>
         <ion-col col-4 *ngFor="let recommendList of recommendLists;let idx = index" (click)="viewRecommendDetail(recommendList)"
                  [ngClass]="{noBorder:idx%3 == 0}">

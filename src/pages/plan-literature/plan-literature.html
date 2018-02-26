@@ -1,5 +1,5 @@
-<ion-content *ngIf="details">
-  <ion-list *ngIf="params.tabType == 'plan'">
+<ion-content>
+  <ion-list *ngIf="params.tabType == 'plan' && details">
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>方案相关文献
       <button ion-button outline item-end (click)="back()">返回</button>
@@ -10,7 +10,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-list *ngIf="params.tabType == 'drug'">
+  <ion-list *ngIf="params.tabType == 'drug' && details">
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>药品不良反应相关文献
       <button ion-button outline item-end (click)="back()">返回</button>
@@ -21,7 +21,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-list *ngIf="params.tabType == 'source'">
+  <ion-list *ngIf="params.tabType == 'source' && details">
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>标准来源指南
       <button ion-button outline item-end (click)="back()">返回</button>

@@ -1,5 +1,8 @@
 <ion-content>
-  <ion-list>
+  <!--<div id="pdfLink">-->
+  <!--</div>-->
+  <iframe id="pdfLink" src="../../assets/pdf/testFile.pdf"></iframe>
+  <ion-list *ngIf="schemeList">
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>推荐方案列表
     </ion-list-header>
@@ -10,9 +13,9 @@
     </ion-item>
   </ion-list>
 
-  <ion-list>
+  <ion-list *ngIf="relativeList">
     <ion-list-header>
-      <ion-icon name="md-desktop" color="danger"></ion-icon>相对
+      <ion-icon name="md-desktop" color="danger"></ion-icon>相对禁忌
     </ion-list-header>
     <ion-item *ngFor="let entity of relativeList" (click)="viewRecommendDetail(entity)" >
       <h3>{{entity.drug_name}}</h3>
@@ -21,7 +24,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-list>
+  <ion-list *ngIf="absoluteList">
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>绝对禁忌
     </ion-list-header>
@@ -47,7 +50,7 @@
     <!--</ion-item>-->
   </ion-list>
 
-  <ion-list>
+  <ion-list *ngIf="doctorList">
     <ion-list-header>
       <ion-icon name="md-desktop" color="danger"></ion-icon>医嘱信息
     </ion-list-header>

@@ -6,6 +6,9 @@ import { ConstantProvider } from "../../providers/constant/constant"
 import { RecommendDetailPage} from "../recommend-detail/recommend-detail";
 import { DoctorAdvicePage } from "../doctor-advice/doctor-advice";
 
+import * as pdf from 'pdf';
+import * as jquery from 'jquery'
+
 @IonicPage()
 @Component({
   selector: 'page-recommend-list',
@@ -20,6 +23,7 @@ export class RecommendListPage {
   schemeList;//推荐方案列表
   absoluteList;//绝对列表
   relativeList;//相对列表1
+  pdfAsDataURI;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public modalCtrl:ModalController,
@@ -107,6 +111,8 @@ export class RecommendListPage {
     loading.present();
     this.getDoctor();
     this.getRecommend(loading);
+    var fileName = "./testFile.pdf";
+    // this.pdfAsDataURI = pdf.output(fileName);
   }
 
   getDoctor (){
