@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "label": "第一个模块",
+      "label": "基本信息",
       "icon": "ios-paper-outline",
       "inputs": [
         {
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "label": "第二个模块",
+      "label": "心血管危险因素",
       "icon": "copy-outline",
       "inputs": [
         {
@@ -125,7 +125,7 @@
       ]
     },
     {
-      "label": "第三个模块",
+      "label": "靶器官损害",
       "icon": "ios-calendar-outline",
       "inputs": [
         {
@@ -149,7 +149,7 @@
           ]
         },
         {
-          "label": "多选",
+          "label": "伴临床疾患",
           "type": "checkbox",
           "value": {},
           "options": [
@@ -187,70 +187,8 @@
       ]
     },
     {
-      "label": "第四个模块",
+      "label": "伴临床疾患",
       "icon": "ios-albums-outline",
-      "inputs": [
-        {
-          "label": "文本",
-          "type": "text",
-          "value": ""
-        },
-        {
-          "label": "单选",
-          "type": "radio",
-          "value": "",
-          "options": [
-            {
-              "label": "firstOption",
-              "value": "1"
-            },
-            {
-              "label": "secondOption",
-              "value": "2"
-            }
-          ]
-        },
-        {
-          "label": "多选",
-          "type": "checkbox",
-          "value": {},
-          "options": [
-            {
-              "label": "firstOption",
-              "value": "1"
-            },
-            {
-              "label": "secondOption",
-              "value": "2"
-            }
-          ]
-        },
-        {
-          "label": "下拉菜单",
-          "type": "select",
-          "value": "",
-          "options": [
-            {
-              "label": "第一个选项",
-              "value": "1"
-            },
-            {
-              "label": "第二个选项",
-              "value": "2"
-            }
-          ]
-        },
-        {
-          "label": "时间",
-          "type": "date",
-          "value": "",
-          "format": "MMM DD, YYYY HH:mm"
-        }
-      ]
-    },
-    {
-      "label": "第五个模块",
-      "icon": "ios-bookmarks-outline",
       "inputs": [
         {
           "label": "文本",

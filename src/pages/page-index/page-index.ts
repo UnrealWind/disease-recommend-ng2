@@ -31,17 +31,20 @@ export class PageIndexPage {
     this.plans = [
       {
         label: "高血压",
-        id:"100037",
+        class_id:"100037",
+        discribe:"hbp",
         icon:'ios-paper-outline'
       },
       {
         label: "慢阻肺",
-        id:'100059',
+        class_id:'100059',
+        discribe:"copd",
         icon:'ios-copy-outline'
       },
       {
         label: "其他",
-        id:'0',
+        class_id:'0',
+        discribe:"other",
         icon:'ios-create-outline'
       }
     ];

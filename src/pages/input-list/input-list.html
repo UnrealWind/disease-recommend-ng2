@@ -1,32 +1,531 @@
-<ion-content *ngIf="formDatas">
-
+<ion-content *ngIf="result && formDatas && parameter.class_id == '100037'">
   <ion-fab top right edge #fab1>
     <button ion-fab mini (click)="openFAB()"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list>
-      <button ion-fab (click)="goHref('googleplus', fab1)">
-        基本心思
-      </button>
-      <button ion-fab (click)="goHref('googleplus', fab1)">
-        基本心思
-      </button>
-      <button ion-fab (click)="goHref('googleplus', fab1)">
-        基本心思
-      </button>
-      <button ion-fab (click)="goHref('googleplus', fab1)">
-        基本心思
-      </button>
-      <button ion-fab (click)="goHref('googleplus', fab1)">
-        基本心思
+      <button *ngFor="let formData of formDatas.data;let index = index" ion-fab (click)="goHref(index, fab1)">
+        {{formData.label}}
       </button>
     </ion-fab-list>
   </ion-fab>
 
-  <ion-list *ngFor="let formData of formDatas.data;let index = index">
-    <ion-list-header>
+  <!--<ion-list *ngFor="let formData of formDatas.data;let index = index" >
+    <ion-list-header class="jumpHeader">
       <ion-icon name="ios-rose" color="secondary"></ion-icon>{{formData.label}}
-      <button *ngIf="index == 0" class="margin-right" ion-button outline item-end (click)="viewRecommend()">查看推荐</button>
+      <button *ngIf="index == 0" class="" ion-button outline item-end (click)="viewRecommend()">查看推荐</button>
     </ion-list-header>
     <form-group *ngFor="let inputData of formData.inputs" [inputData]="inputData"></form-group>
+  </ion-list>-->
+
+  <ion-list>
+    <ion-list-header class="jumpHeader">
+      <ion-icon name="ios-rose" color="secondary"></ion-icon>基本信息
+      <button class="" ion-button outline item-end (click)="viewRecommend()">查看推荐</button>
+    </ion-list-header>
+
+    <ion-list radio-group [(ngModel)]="result.info.sex_id">
+      <ion-list-header>
+        性别
+      </ion-list-header>
+      <ion-item>
+        <ion-label>男</ion-label>
+        <ion-radio value="0"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>女</ion-label>
+        <ion-radio value="1"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item >
+        <ion-label color="primary" floating>年龄</ion-label>
+        <ion-input [(ngModel)]="result.info.age"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item >
+        <ion-label color="primary" floating>身高</ion-label>
+        <ion-input [(ngModel)]="result.info.body_heig"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item >
+        <ion-label color="primary" floating>体重</ion-label>
+        <ion-input [(ngModel)]="result.info.body_weig"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item >
+        <ion-label color="primary" floating>心律</ion-label>
+        <ion-input [(ngModel)]="result.info.hr"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item >
+        <ion-label color="primary" floating>入院收缩压</ion-label>
+        <ion-input [(ngModel)]="result.info.sbp"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item >
+        <ion-label color="primary" floating>入院舒张压</ion-label>
+        <ion-input [(ngModel)]="result.info.dbp"></ion-input>
+      </ion-item>
+    </ion-list>
+
+  </ion-list>
+
+
+  <ion-list>
+    <ion-list-header class="jumpHeader">
+      <ion-icon name="ios-rose" color="secondary"></ion-icon>心血管危险因素
+    </ion-list-header>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>血压水平分类</ion-label>
+        <ion-select [(ngModel)]="result.info.gxy_class" interface="action-sheet">
+          <ion-option value="0">否</ion-option>
+          <ion-option value="1">高血压1级</ion-option>
+          <ion-option value="2">高血压2级</ion-option>
+          <ion-option value="3">高血压3级</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>心血管风险水平分层</ion-label>
+        <ion-select [(ngModel)]="result.info.gxy_risk" interface="action-sheet">
+          <ion-option value="0">否</ion-option>
+          <ion-option value="1">低危</ion-option>
+          <ion-option value="2">中危</ion-option>
+          <ion-option value="3">高危</ion-option>
+          <ion-option value="4">极高危</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>高血钾</ion-label>
+        <ion-select [(ngModel)]="result.info.if_jxh" interface="action-sheet">
+          <ion-option value="0">否</ion-option>
+          <ion-option value="1">血钾>5.5，<6.0</ion-option>
+          <ion-option value="2">血钾>6.0</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>糖耐量受损</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_tnb_02"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>高血脂</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_gzxz"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>低血钾</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_jxl"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header class="jumpHeader">
+      <ion-icon name="ios-rose" color="secondary"></ion-icon>靶器官损害
+    </ion-list-header>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>左室肥厚</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_zsfh"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>左室功能不全</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_zsgnbq"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>颈动脉粥样硬化</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_jdmzyyh"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>颈动脉增厚</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_jdmzh"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>冠状动脉粥样硬化</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_gmzyyh"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>尿蛋白</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_dbn"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>尿白蛋白大于等于30mg/24小时</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_nbdb_over"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header class="jumpHeader">
+      <ion-icon name="ios-rose" color="secondary"></ion-icon>伴临床疾患
+    </ion-list-header>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>心肌梗死</ion-label>
+        <ion-select [(ngModel)]="result.info.xjgs_type" interface="action-sheet">
+          <ion-option value="0">否</ion-option>
+          <ion-option value="1">陈旧性心肌梗死</ion-option>
+          <ion-option value="2">急性非ST段抬高型</ion-option>
+          <ion-option value="3">急性ST段抬高型</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>心力衰竭</ion-label>
+        <ion-select [(ngModel)]="result.info.xlsj_type" interface="action-sheet">
+          <ion-option value="0">否</ion-option>
+          <ion-option value="1">心力衰竭I级</ion-option>
+          <ion-option value="2">心力衰竭II级</ion-option>
+          <ion-option value="3">心力衰竭III级</ion-option>
+          <ion-option value="4">心力衰竭IV级</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>肾动脉狭窄</ion-label>
+        <ion-select [(ngModel)]="result.info.if_sdmxz" interface="action-sheet">
+          <ion-option value="0">否</ion-option>
+          <ion-option value="1">单侧</ion-option>
+          <ion-option value="2">双侧</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>颈动脉狭窄大于70%</ion-label>
+        <ion-select [(ngModel)]="result.info.if_jdmxz" interface="action-sheet">
+          <ion-option value="0">否</ion-option>
+          <ion-option value="1">单侧颈动脉狭窄大于70%</ion-option>
+          <ion-option value="2">双侧颈动脉狭窄大于70%</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>心绞痛</ion-label>
+        <ion-toggle [(ngModel)]="result.info.xjt_type"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>心脏射频消融术后</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_oper_sp"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>心脏支架植入术后</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_oper_zj"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>心肌病</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_oper_zj"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>脑血管病</ion-label>
+        <ion-toggle [(ngModel)]="result.info.brain_type"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>周围血管病变</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_zwxgb"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>糖尿病肾病</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_tnbsb"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>糖尿病</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_tnb"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>代谢综合征</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_dxzhz"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>痛风</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_tf"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>前列腺增生</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_qlxzs"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>体位性低血压</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_twxdxy"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>哮喘</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_xc"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>慢性阻塞性肺病</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_maf"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>妊娠</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_rs"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>间歇性跛行</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_jxxbx"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>胃炎</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_wy"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>胃溃疡</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_kyb"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>血管神经性水肿</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_sjxsz"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>主动脉瓣狭窄</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_zdmbxz"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>肥厚梗阻性心肌病</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_gzxxjb"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>高尿酸血症</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_gnsxz"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>心律失常</ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_xlsc"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_xlsc">
+      <ion-item>
+        <ion-label>快速心律失常
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.xlsc_type"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_xlsc">
+      <ion-item>
+        <ion-label>缓慢性心律失常
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_hmxxlsc"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_xlsc && result.info.xlsc_type">
+      <ion-item>
+        <ion-label>房颤
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_fc"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_xlsc && result.info.xlsc_type">
+      <ion-item>
+        <ion-label>频发房性早搏
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_fxzb"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_xlsc && result.info.xlsc_type">
+      <ion-item>
+        <ion-label>频发室性早搏
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_sxzb"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_xlsc && result.info.xlsc_type">
+      <ion-item>
+        <ion-label>阵发性室性心动过速
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_zfxxdgs"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_xlsc && result.info.if_hmxxlsc">
+      <ion-item>
+        <ion-label>病态窦房结综合征
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_dfjzhz"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_xlsc && result.info.if_hmxxlsc">
+      <ion-item>
+        <ion-label>2-3度房室阻滞
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_fszz"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>肾功能不全
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_sgnbq"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_sgnbq">
+      <ion-item>
+        <ion-label>肌酐大于265umol/L
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_sgnbq_over"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_sgnbq && result.info.if_sgnbq_over">
+      <ion-item>
+        <ion-label>是否进行透析
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_sfjxtx"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_sgnbq && result.info.if_sgnbq_over && result.info.if_sfjxtx">
+      <ion-item>
+        <ion-label>血液透析
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_xytx"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_sgnbq && result.info.if_sgnbq_over && result.info.if_sfjxtx">
+      <ion-item>
+        <ion-label>腹膜透析
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_fmtx"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="result.info.if_sgnbq">
+      <ion-item>
+        <ion-label>肌酐小于266ummol/L
+        </ion-label>
+        <ion-toggle [(ngModel)]="result.info.if_sgnbq_under"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
   </ion-list>
 
 </ion-content>

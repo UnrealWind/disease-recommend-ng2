@@ -35,7 +35,7 @@ export class ListIndexPage {
   getRecordList (loading){
     let urlBack = 'filter_pageNo=1' +
       '&filter_pageSize=10' +
-      '&filter_disease='+this.plan.id+
+      '&filter_disease='+this.plan.class_id+
       '&filter_startTime=' +
       '&filter_endTime=' +
       '&filter_search=' +
@@ -48,8 +48,13 @@ export class ListIndexPage {
       })
   }
 
-  inputIndex(id){
-    this.navCtrl.push(InputListPage,{ 'id': id });
+  inputIndex(opt){
+    this.navCtrl.push(InputListPage,{
+      'discribe': this.plan.discribe,
+      'pati_visit_id':opt.pati_visit_id,
+      'pati_id':opt.pati_id,
+      'class_id':this.plan.class_id
+    });
   }
 
 

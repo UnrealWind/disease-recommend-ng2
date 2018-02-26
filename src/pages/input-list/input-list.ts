@@ -1,7 +1,10 @@
 import { Component,ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams,Nav,FabContainer,LoadingController} from 'ionic-angular';
 import { RecommendListPage} from "../recommend-list/recommend-list";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+import { ConstantProvider} from "../../providers/constant/constant";
+import * as $ from 'jquery';
+
 
 @IonicPage()
 @Component({
@@ -11,10 +14,14 @@ import {HttpClient} from "@angular/common/http";
 export class InputListPage {
   @ViewChild(Nav) nav: Nav;
   formDatas;
+  result;
+  parameter;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private Http:HttpClient,
-              public loadingCtrl:LoadingController){
+              public loadingCtrl:LoadingController,
+              public constant:ConstantProvider){
+      this.parameter = this.navParams.data;
   }
 
   ngOnInit(): void {
@@ -25,6 +32,7 @@ export class InputListPage {
 
     loading.present();
     this.getFormDatas(loading);
+    this.getResult();
   }
 
   update (){
@@ -40,8 +48,20 @@ export class InputListPage {
       .subscribe((res:Response)=>{
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         this.formDatas = res;
-        console.log(this.formDatas)
         loading.dismiss();
+      })
+  }
+
+  getResult (){
+    let parameter =
+      "?filter_patiId="+this.parameter.pati_id+
+      "&filter_patiVisitId="+this.parameter.pati_visit_id+
+      "&class_id="+this.parameter.class_id
+
+    this.Http.get(this.constant.BackstageUrl+this.parameter.discribe+'/patient/info'+parameter,{})
+      .subscribe((res:Response)=>{
+        this.result = res;
+        console.log(this.result)
       })
   }
 
@@ -49,13 +69,18 @@ export class InputListPage {
     this.navCtrl.push(RecommendListPage,{ 'formDatas': this.formDatas });
   }
 
-
   openFAB() {
-    console.log('Clicked open social menu');
+    //console.log('open');
   }
 
-  goHref(network: string, fab: FabContainer) {
-    console.log('Share in ' + network);
+  goHref(idx: number, fab: FabContainer) {
+
+    //这个地方，首先要注意的是，单页应用一定要锁定自己目标元素的位置
+    //其次，ionic中专门制定了用于滚动的div  scroll-content 并不是body
+    $('page-input-list .scroll-content').animate({
+      scrollTop:$('page-input-list .jumpHeader').eq(idx).offset().top
+      -$('page-input-list .scroll-content').offset().top +$('page-input-list .scroll-content').scrollTop()
+    }, 300);
     fab.close();
   }
 }

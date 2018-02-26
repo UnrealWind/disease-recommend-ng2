@@ -8,9 +8,45 @@ page-input-list {
 
   ion-fab[top][edge] {
     top:-3px;
+    right:7rem;
   }
 
-  .list .margin-right {
-    margin-right: 6rem;
+  ion-fab-list {
+    width:auto;
+    margin:5rem 0;
+    .fab {
+      border-radius: 0;
+      margin:0;
+      .button-inner {
+        text-align: left;
+      }
+    }
+    .fab-in-list {
+      width:11rem;
+      background-color: #fff;
+    }
+
+    button:first-child {
+      border-top:1px solid #ccc;
+      border-top-left-radius:0.5rem;
+      border-top-right-radius:0.5rem;
+    }
+    button {
+      border-left:1px solid #ccc;
+      border-right:1px solid #ccc;
+      .button-inner {
+        border-bottom: 1px solid #ccc;
+      }
+    }
+    button:last-child {
+      border-bottom:1px solid #ccc;
+      border-bottom-right-radius:0.5rem;
+      border-bottom-left-radius:0.5rem;
+      .button-inner {
+        border-bottom: 0;
+      }
+    };
   }
+
+
 }
