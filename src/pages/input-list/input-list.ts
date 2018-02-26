@@ -43,7 +43,7 @@ export class InputListPage {
   }
 
   getFormDatas (){
-    this.Http.get('../../assets/data/formDatas.json',{})
+    this.Http.get('../../assets/data/formDatas'+this.parameter.class_id+'.json',{})
       .subscribe((res:Response)=>{
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         this.formDatas = res;
@@ -65,7 +65,14 @@ export class InputListPage {
   }
 
   viewRecommend (){
-    this.navCtrl.push(RecommendListPage,{ 'formDatas': this.formDatas });
+    var idx = 0
+    for (var i in this.result.info){
+      idx++
+      this.result.info[i] == false?this.result.info[i] = '0':undefined;
+      this.result.info[i] == true?this.result.info[i] = '1':undefined;
+    }
+
+    this.navCtrl.push(RecommendListPage,{ 'result': this.result.info,'parameter':this.parameter});
   }
 
   openFAB() {

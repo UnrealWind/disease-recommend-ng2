@@ -47,7 +47,7 @@
 </ion-list>
 
 <!--开关-->
-<ion-list  *ngIf="inputData.type=='开关'">
+<ion-list  *ngIf="inputData.type=='switch'">
   <ion-item>
     <ion-label>{{inputData.label}}</ion-label>
     <ion-toggle [(ngModel)]="inputData.value"></ion-toggle>
