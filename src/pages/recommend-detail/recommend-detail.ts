@@ -17,9 +17,11 @@ export class RecommendDetailPage {
   params;
   recommendLists;
   user;
+  result;
   constructor(public navCtrl: NavController,
               public navParams: NavParams) {
-    this.params = this.navParams.data;
+    this.params = this.navParams.data.parameter;
+    this.result = this.navParams.data;
 
     this.recommendLists =  [
       {
@@ -72,7 +74,7 @@ export class RecommendDetailPage {
 
   viewRecommendDetail(recommendList){
     switch (recommendList.id){
-      case '1':this.navCtrl.push(RecommendBasicPage,this.params);
+      case '1':this.navCtrl.push(RecommendBasicPage,this.result);
         break;
       case '2':this.navCtrl.push(PlanIntroducePage,this.params);
         break;

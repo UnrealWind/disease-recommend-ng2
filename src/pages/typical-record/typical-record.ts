@@ -26,7 +26,7 @@ export class TypicalRecordPage {
     });
     loading.present();
 
-    this.Http.get(this.Constant.BackstageUrl + 'hbp/typical/cases?id='+this.params.id+'&uuid='+this.params.uuid)
+    this.Http.get(this.Constant.BackstageUrl + this.params.discribe +'/typical/cases?id='+this.params.id+'&uuid='+this.params.uuid)
       .subscribe((res:Response)=>{
         this.details = res;
         loading.dismiss();

@@ -27,7 +27,7 @@ export class PlanIntroducePage {
     });
     loading.present();
 
-    this.Http.get(this.Constant.BackstageUrl+'hbp/recommendation/introduce?uuid='+this.params.uuid+'&id='+this.params.id)
+    this.Http.get(this.Constant.BackstageUrl+this.params.discribe +'/recommendation/introduce?uuid='+this.params.uuid+'&id='+this.params.id)
       .subscribe((res:Response)=>{
         this.details = res;
         this.details = this.filter(this.details);

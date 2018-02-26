@@ -26,7 +26,7 @@ export class RiskFactorPage {
     });
     loading.present();
 
-    this.Http.get(this.Constant.BackstageUrl + 'hbp/danger/factor?id='+this.params.id)
+    this.Http.get(this.Constant.BackstageUrl + this.params.discribe +'/danger/factor?id='+this.params.id)
       .subscribe((res:Response)=>{
         this.details = res;
         loading.dismiss();

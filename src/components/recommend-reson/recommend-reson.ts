@@ -16,6 +16,7 @@ export class RecommendResonComponent {
               public Constant:ConstantProvider,
               public loadingCtrl:LoadingController) {
     this.params = this.navParams.data;
+    console.log(this.params,456)
   }
 
   ngOnInit(): void {
@@ -25,7 +26,7 @@ export class RecommendResonComponent {
     });
     loading.present();
 
-    this.Http.get( this.Constant.BackstageUrl + 'hbp/recommendation/reason?id='+this.params.id+'&uuid='+this.params.uuid+"&class_id="+this.params.class_id)
+    this.Http.get( this.Constant.BackstageUrl + this.params.discribe +'/recommendation/reason?id='+this.params.id+'&uuid='+this.params.uuid+"&class_id="+this.params.class_id)
       .subscribe((res:Response)=>{
         this.details = res;
         loading.dismiss();

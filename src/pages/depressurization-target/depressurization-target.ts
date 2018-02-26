@@ -26,7 +26,7 @@ export class DepressurizationTargetPage {
     });
     loading.present();
 
-    this.Http.get(this.Constant.BackstageUrl+'hbp/voltage?id='+this.params.id+'&class_id='+this.params.classId)
+    this.Http.get(this.Constant.BackstageUrl+this.params.discribe +'/voltage?id='+this.params.id+'&class_id='+this.params.classId)
       .subscribe((res:Response)=>{
         this.details = res;
         loading.dismiss();

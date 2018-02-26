@@ -21,7 +21,7 @@ export class RecommendBasicPage {
   }
 
   viewRecommendReson(){
-    this.modalCtrl.create(RecommendResonComponent,this.params).present();
+    this.modalCtrl.create(RecommendResonComponent,this.params.parameter).present();
   }
 
   back(){

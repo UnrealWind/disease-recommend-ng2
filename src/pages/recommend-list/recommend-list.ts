@@ -6,8 +6,8 @@ import { ConstantProvider } from "../../providers/constant/constant"
 import { RecommendDetailPage} from "../recommend-detail/recommend-detail";
 import { DoctorAdvicePage } from "../doctor-advice/doctor-advice";
 
-import * as pdf from 'pdf';
 import * as jquery from 'jquery'
+import * as media from 'jquery-mediaplayer'
 
 @IonicPage()
 @Component({
@@ -30,76 +30,13 @@ export class RecommendListPage {
               public Http:HttpClient,
               public Constant:ConstantProvider,
               public loadingCtrl:LoadingController) {
-    this.formDatas = this.navParams.data.formDatas;
     this.params = {
-      patiId:611959,
-      patiVisitId:1,
-      classId:100037
+      classId:this.navParams.data.parameter.class_id,
+      patiId:this.navParams.data.parameter.pati_id,
+      patiVisitId:this.navParams.data.parameter.pati_visit_id,
+      discribe:this.navParams.data.parameter.discribe
     };
-    this.recommend = {
-      "age":"63",
-      "body_heig":"176.0",
-      "body_weig":"96.5",
-      "brain_type":"0",
-      "dbp":"88",
-      "gxy_class":"3",
-      "gxy_risk":"4",
-      "hr":"70",
-      "if_dbn":"0",
-      "if_dfjzhz":"0",
-      "if_dxzhz":"0",
-      "if_fc":"0",
-      "if_fmtx":"0",
-      "if_fszz":"0",
-      "if_fxzb":"0",
-      "if_gmzyyh":"1",
-      "if_gnsxz":"0",
-      "if_gzxxjb":"0",
-      "if_gzxz":"0",
-      "if_hmxxlsc":"0",
-      "if_jdmxz":"0",
-      "if_jdmzh":"0",
-      "if_jdmzyyh":"0",
-      "if_jxh":"0",
-      "if_jxl":"0",
-      "if_jxxbx":"1",
-      "if_kyb":"0",
-      "if_maf":"0",
-      "if_nbdb_over":"0",
-      "if_oper_sp":"0",
-      "if_oper_zj":"0",
-      "if_qlxzs":"0",
-      "if_rs":"1",
-      "if_sdmxz":"0",
-      "if_sfjxtx":"0",
-      "if_sfjxtx_a_if_xytx":"1",
-      "if_sgnbq":"0",
-      "if_sgnbq_over":"0",
-      "if_sgnbq_under":"0",
-      "if_sjxsz":"0",
-      "if_sxzb":"0",
-      "if_tf":"0",
-      "if_tnb":"0",
-      "if_tnb_02":"0",
-      "if_tnbsb":"0",
-      "if_twxdxy":"0",
-      "if_wy":"0",
-      "if_xc":"0",
-      "if_xjb":"0",
-      "if_xlsc":"0",
-      "if_xytx":"0",
-      "if_zdmbxz":"0",
-      "if_zfxxdgs":"0",
-      "if_zsfh":"0",
-      "if_zsgnbq":"0",
-      "if_zwxgb":"0",
-      "sbp":"177",
-      "sex_id":"0",
-      "xjgs_type":"0",
-      "xjt_type":"1",
-      "xlsc_type":"0",
-      "xlsj_type":"0"
-    }
+    this.recommend = this.navParams.data.result;
   }
 
   //这个ng是angularjs用于自己掌握数据初始化渲染的入口，只执行一次的，慢于constructor,后者是原生es6
@@ -111,8 +48,6 @@ export class RecommendListPage {
     loading.present();
     this.getDoctor();
     this.getRecommend(loading);
-    var fileName = "./testFile.pdf";
-    // this.pdfAsDataURI = pdf.output(fileName);
   }
 
   getDoctor (){
@@ -123,18 +58,22 @@ export class RecommendListPage {
       "filter_pageNo":1,
       "filter_pageSize":10
     };
-    var url = this.Constant.BackstageUrl + 'hbp/advice/doctorAdvice';
+    var url = this.Constant.BackstageUrl + this.params.discribe +'/advice/doctorAdvice';
     var params = '?filter_patiId='+this.params.patiId+'&filter_patiVisitId='+this.params.patiVisitId+'&class_id='+this.params.classId+'&filter_pageNo=1&filter_pageSize=10';
     this.Http.get(url + params)
       .subscribe((res:Response)=>{
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         this.doctorList = res;
-        this.doctorList = this.doctorList.page.content;
+        if(this.doctorList.page!=null){
+          this.doctorList = this.doctorList.page.content;
+        }else{
+          this.doctorList = [];
+        }
       })
   }
 
   getRecommend (loading){
-    var url = this.Constant.BackstageUrl + 'hbp/recommendation?';
+    var url = this.Constant.BackstageUrl + this.params.discribe +'/recommendation?';
     this.Http.post(url+'class_id='+this.params.classId,this.recommend)
       .subscribe((res:Response)=>{
         this.recommendList = res;
@@ -167,11 +106,15 @@ export class RecommendListPage {
 
   viewRecommendDetail(entity){
     var filter = {
-      patiId:this.params.patiId,
-      patiVisitId:this.params.patiVisitId,
-      classId:this.params.classId,
-      uuid:entity.uuid,
-      id:this.recommendList.id
+      parameter:{
+        patiId:this.params.patiId,
+        patiVisitId:this.params.patiVisitId,
+        classId:this.params.classId,
+        uuid:entity.uuid,
+        id:this.recommendList.id,
+        discribe:this.params.discribe
+      },
+      result:this.recommend
     };
     this.navCtrl.push(RecommendDetailPage,filter)
   }

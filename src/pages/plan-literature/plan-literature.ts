@@ -27,20 +27,20 @@ export class PlanLiteraturePage {
     loading.present();
 
     if(this.params.tabType == 'plan'){
-      this.Http.get(this.Constant.BackstageUrl+'hbp/scheme/literature?id='+this.params.id+'&uuid='+this.params.uuid)
+      this.Http.get(this.Constant.BackstageUrl+this.params.discribe +'/scheme/literature?id='+this.params.id+'&uuid='+this.params.uuid)
         .subscribe((res:Response)=>{
           this.details = res;
           loading.dismiss();
         })
     }else if(this.params.tabType == 'drug'){
-      this.Http.get(this.Constant.BackstageUrl+'hbp/drug/literature?id='+this.params.id+'&uuid='+this.params.uuid)
+      this.Http.get(this.Constant.BackstageUrl+this.params.discribe +'/drug/literature?id='+this.params.id+'&uuid='+this.params.uuid)
         .subscribe((res:Response)=>{
           this.details = res;
           loading.dismiss();
         })
     }
     else if(this.params.tabType == 'source'){
-      this.Http.get(this.Constant.BackstageUrl+'hbp/guide?id='+this.params.id+'&uuid='+this.params.uuid)
+      this.Http.get(this.Constant.BackstageUrl+this.params.discribe +'/guide?id='+this.params.id+'&uuid='+this.params.uuid)
         .subscribe((res:Response)=>{
           this.details = res;
           loading.dismiss();
