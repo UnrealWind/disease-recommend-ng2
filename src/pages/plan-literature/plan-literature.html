@@ -4,7 +4,8 @@
       <ion-icon name="md-desktop" color="danger"></ion-icon>方案相关文献
       <button ion-button outline item-end (click)="back()">返回</button>
     </ion-list-header>
-    <ion-item (click)="viewRecommendDetail()" *ngFor="let entity of details.data">
+    <!--<ion-item (click)="viewRecommendDetail()" *ngFor="let entity of details.data">-->
+    <ion-item *ngFor="let entity of details.data">
       <h3>{{entity.label}}</h3>
       <p>???</p>
     </ion-item>
@@ -15,7 +16,8 @@
       <ion-icon name="md-desktop" color="danger"></ion-icon>药品不良反应相关文献
       <button ion-button outline item-end (click)="back()">返回</button>
     </ion-list-header>
-    <ion-item (click)="viewRecommendDetail()" *ngFor="let entity of details.data">
+    <!--<ion-item (click)="viewRecommendDetail()" *ngFor="let entity of details.data">-->
+    <ion-item *ngFor="let entity of details.data">
       <h3>{{entity.label}}</h3>
       <p>???</p>
     </ion-item>
@@ -26,7 +28,8 @@
       <ion-icon name="md-desktop" color="danger"></ion-icon>标准来源指南
       <button ion-button outline item-end (click)="back()">返回</button>
     </ion-list-header>
-    <ion-item (click)="viewRecommendDetail()" *ngFor="let entity of details.data">
+    <!--<ion-item (click)="viewRecommendDetail()" *ngFor="let entity of details.data">-->
+    <ion-item *ngFor="let entity of details.data">
       <h3>{{entity.name}}</h3>
       <p>{{entity.disease}}</p>
     </ion-item>
