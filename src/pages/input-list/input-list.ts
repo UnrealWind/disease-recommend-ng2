@@ -5,7 +5,6 @@ import { HttpClient } from "@angular/common/http";
 import { ConstantProvider} from "../../providers/constant/constant";
 import * as $ from 'jquery';
 
-
 @IonicPage()
 @Component({
   selector: 'page-input-list',
@@ -31,8 +30,8 @@ export class InputListPage {
     });
 
     loading.present();
-    this.getFormDatas(loading);
-    this.getResult();
+    this.getFormDatas();
+    this.getResult(loading);
   }
 
   update (){
@@ -43,16 +42,15 @@ export class InputListPage {
     this.navCtrl.pop();
   }
 
-  getFormDatas (loading){
+  getFormDatas (){
     this.Http.get('../../assets/data/formDatas.json',{})
       .subscribe((res:Response)=>{
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         this.formDatas = res;
-        loading.dismiss();
       })
   }
 
-  getResult (){
+  getResult (loading){
     let parameter =
       "?filter_patiId="+this.parameter.pati_id+
       "&filter_patiVisitId="+this.parameter.pati_visit_id+
@@ -60,7 +58,8 @@ export class InputListPage {
 
     this.Http.get(this.constant.BackstageUrl+this.parameter.discribe+'/patient/info'+parameter,{})
       .subscribe((res:Response)=>{
-        this.result = res;
+        this.result = res
+        loading.dismiss();
         console.log(this.result)
       })
   }
