@@ -11,7 +11,7 @@
       <button ion-button outline item-end (click)="back()">返回</button>
     </ion-list-header>
     <ion-item *ngIf="suggestList" class="recommend-list">
-      <h3 (click)="viewRecommendReson()">{{suggestList[0]}}</h3>
+      <h3 *ngIf="suggestList.length>0" (click)="viewRecommendReson()" class="content">{{suggestList[0]}}</h3>
       <h3 *ngIf="suggestList.length==0 || suggestList==null">暂无数据.......</h3>
     </ion-item>
 

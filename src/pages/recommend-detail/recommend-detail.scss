@@ -15,14 +15,14 @@ page-recommend-detail {
   .recommend-list ion-label{
     white-space: normal;
   }
-  .recommend-list h3 {
+  .recommend-list h3.content {
     width:98%;
     position:relative;
     line-height:1.4em;
     height:5.6em;
     overflow:hidden;
   }
-  .recommend-list h3:after {
+  .recommend-list h3.content:after {
     content:"...";
     position:absolute;
     bottom:0;
