@@ -57,7 +57,10 @@ export class InputListPage {
 
     this.Http.get(this.constant.BackstageUrl+this.parameter.discribe+'/patient/info'+parameter,{})
       .subscribe((res:Response)=>{
-        this.result = res
+        this.result = res;
+        for(var i in this.result.info){
+          this.result.info[i] == 1?this.result.info[i] =true:undefined;
+        }
         loading.dismiss();
         console.log(this.result)
       })
