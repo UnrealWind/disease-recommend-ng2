@@ -7,7 +7,6 @@ import { RecommendDetailPage} from "../recommend-detail/recommend-detail";
 import { DoctorAdvicePage } from "../doctor-advice/doctor-advice";
 
 import * as jquery from 'jquery'
-import * as media from 'jquery-mediaplayer'
 
 @IonicPage()
 @Component({
@@ -23,7 +22,6 @@ export class RecommendListPage {
   schemeList;//推荐方案列表
   absoluteList;//绝对列表
   relativeList;//相对列表1
-  pdfAsDataURI;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public modalCtrl:ModalController,
