@@ -20,7 +20,10 @@ export class InputListPage {
               private Http:HttpClient,
               public loadingCtrl:LoadingController,
               public constant:ConstantProvider){
-      this.parameter = this.navParams.data;
+      this.parameter = {
+        "discribe":"hbp",
+        "class_id":"100037"
+      };
   }
 
   ngOnInit(): void {
@@ -29,8 +32,8 @@ export class InputListPage {
       content: '加载中……'
     });
     loading.present();
-    this.getFormDatas();
-    this.getResult(loading);
+    this.getFormDatas(loading);
+    //this.getResult(loading);
   }
 
   update (){
@@ -41,12 +44,26 @@ export class InputListPage {
     this.navCtrl.pop();
   }
 
-  getFormDatas (){
+  getFormDatas (loading){
     this.Http.get('../../assets/data/formDatas'+this.parameter.class_id+'.json',{})
       .subscribe((res:Response)=>{
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         this.formDatas = res;
+        this.extractResult ();
+        loading.dismiss();
       })
+  }
+
+  extractResult (){
+    var that = this;
+    this.result = {
+      'info':{}
+    };
+    this.formDatas.data.forEach(function (modal,i) {
+      modal.inputs.forEach(function (input,ix) {
+        that.result.info[input.name] = input.value;
+      })
+    })
   }
 
   getResult (loading){
@@ -62,7 +79,6 @@ export class InputListPage {
           this.result.info[i] == 1?this.result.info[i] =true:undefined;
         }
         loading.dismiss();
-        console.log(this.result)
       })
   }
 
