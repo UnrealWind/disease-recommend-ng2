@@ -119,4 +119,8 @@ export class RecommendListPage {
   viewAdviceDetail(entity){
     this.modalCtrl.create(DoctorAdvicePage,entity).present();
   }
+
+  back (){
+    this.navCtrl.pop()
+  }
 }
