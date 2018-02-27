@@ -101,7 +101,7 @@ export class RecommendListPage {
     return list;
   }
 
-  viewRecommendDetail(entity){
+  viewRecommendDetail(entity,type){
     var filter = {
       parameter:{
         patiId:this.params.patiId,
@@ -109,10 +109,17 @@ export class RecommendListPage {
         classId:this.params.classId,
         uuid:entity.uuid,
         id:this.recommendList.id,
-        discribe:this.params.discribe
+        discribe:this.params.discribe,
+        type:type,
+        name:''
       },
       result:this.recommend
     };
+    if(type == 'recommend'){
+      filter.parameter.name = entity.recomName;
+    }else if(type == 'avoid'){
+      filter.parameter.name = entity.drug_name
+    }
     this.navCtrl.push(RecommendDetailPage,filter)
   }
 
