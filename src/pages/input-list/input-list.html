@@ -21,61 +21,57 @@
     <ion-list>
       <ion-list-header class="jumpHeader">
         <ion-icon name="ios-rose" color="secondary"></ion-icon>基本信息
-        <button class="" ion-button outline item-end (click)="viewRecommend()">查看推荐</button>
+        <button class="" ion-button outline item-end (click)="viewRecommend()">推荐详情>></button>
       </ion-list-header>
 
-      <ion-list radio-group [(ngModel)]="result.info.sex_id">
-        <ion-list-header>
-          性别
-        </ion-list-header>
+      <ion-list>
         <ion-item>
-          <ion-label>男</ion-label>
-          <ion-radio value="0"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>女</ion-label>
-          <ion-radio value="1"></ion-radio>
+          <ion-label>性别</ion-label>
+          <ion-select [(ngModel)]="result.info.sex_id" interface="action-sheet">
+            <ion-option value="0">男</ion-option>
+            <ion-option value="1">女</ion-option>
+          </ion-select>
         </ion-item>
       </ion-list>
 
       <ion-list>
         <ion-item >
-          <ion-label color="primary" floating>年龄</ion-label>
+          <ion-label >年龄</ion-label>
           <ion-input [(ngModel)]="result.info.age"></ion-input>
         </ion-item>
       </ion-list>
 
       <ion-list>
         <ion-item >
-          <ion-label color="primary" floating>身高</ion-label>
+          <ion-label >身高</ion-label>
           <ion-input [(ngModel)]="result.info.body_heig"></ion-input>
         </ion-item>
       </ion-list>
 
       <ion-list>
         <ion-item >
-          <ion-label color="primary" floating>体重</ion-label>
+          <ion-label >体重</ion-label>
           <ion-input [(ngModel)]="result.info.body_weig"></ion-input>
         </ion-item>
       </ion-list>
 
       <ion-list>
         <ion-item >
-          <ion-label color="primary" floating>心律</ion-label>
+          <ion-label >心律</ion-label>
           <ion-input [(ngModel)]="result.info.hr"></ion-input>
         </ion-item>
       </ion-list>
 
       <ion-list>
         <ion-item >
-          <ion-label color="primary" floating>入院收缩压</ion-label>
+          <ion-label >入院收缩压</ion-label>
           <ion-input [(ngModel)]="result.info.sbp"></ion-input>
         </ion-item>
       </ion-list>
 
       <ion-list>
         <ion-item >
-          <ion-label color="primary" floating>入院舒张压</ion-label>
+          <ion-label >入院舒张压</ion-label>
           <ion-input [(ngModel)]="result.info.dbp"></ion-input>
         </ion-item>
       </ion-list>

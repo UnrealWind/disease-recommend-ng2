@@ -6,14 +6,27 @@ page-input-list {
     border-top:0;
   }
 
+  .fab[mini] .fab-close-icon {
+    line-height:2.7rem;
+  }
+
+  .item-ios .item-button {
+    padding:1.2rem 0.5rem;
+  }
+
+  .fab[mini] {
+    width:2.7rem;
+    height:2.7rem;
+  }
+
   ion-fab[top][edge] {
-    top:-3px;
-    right:7rem;
+    top:0px;
+    right:8rem;
   }
 
   ion-fab-list {
     width:auto;
-    margin:5rem 0;
+    margin:4.1rem 0;
     .fab {
       border-radius: 0;
       margin:0;
