@@ -1,6 +1,6 @@
 <ion-content>
 
-  <ion-fab top right edge #fab1 *ngIf="formDatas">
+  <ion-fab top right edge #fab1 *ngIf="result && formDatas">
     <button ion-fab mini (click)="openFAB()"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list>
       <button *ngFor="let formData of formDatas.data;let index = index" ion-fab (click)="goHref(index, fab1)">

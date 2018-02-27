@@ -28,7 +28,6 @@ export class InputListPage {
       spinner: 'crescent',
       content: '加载中……'
     });
-
     loading.present();
     this.getFormDatas();
     this.getResult(loading);

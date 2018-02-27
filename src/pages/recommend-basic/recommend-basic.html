@@ -1,46 +1,28 @@
 <ion-content>
-  <ion-list>
-    <ion-list-header>
-      <ion-icon name="md-desktop" color="danger"></ion-icon>基本信息
-      <button ion-button outline item-end (click)="viewRecommendReson()">查看推荐理由</button>
-    </ion-list-header>
+  <div *ngIf="tagFormDatas">
+    <ion-list  *ngFor = "let formData of tagFormDatas;let index = index">
+      <ion-list-header>
+        <ion-icon name="md-desktop" color="danger"></ion-icon>{{formData.label}}
+        <button *ngIf="index == 0" ion-button outline item-end (click)="viewRecommendReson()">查看推荐理由</button>
+      </ion-list-header>
 
-    <ion-item>
-      <h3>性别</h3>
-      <p></p>
-      <ion-note item-end>男</ion-note>
-    </ion-item>
-    <ion-item>
-      <h3>身高</h3>
-      <p></p>
-      <ion-note item-end>188cm</ion-note>
-    </ion-item>
-    <ion-item>
-      <h3>体重</h3>
-      <p></p>
-      <ion-note item-end>88kg</ion-note>
-    </ion-item>
-    <ion-item>
-      <h3>入院舒张压</h3>
-      <p></p>
-      <ion-note item-end>88 mmHg</ion-note>
-    </ion-item>
-    <ion-item>
-      <h3>血压水平分类</h3>
-      <p></p>
-      <ion-note item-end>高血压3级</ion-note>
-    </ion-item>
-    <ion-item>
-      <h3>冠状动脉粥样硬化</h3>
-      <p></p>
-      <ion-note item-end>是</ion-note>
-    </ion-item>
+      <ion-item *ngFor = "let input of formData.inputs">
+        <h3>{{input.label}}</h3>
+        <p></p>
+        <ion-note item-end>{{input.value}}</ion-note>
+      </ion-item>
 
-  </ion-list>
+      <ion-item *ngIf="formData.inputs.length == 0">
+        <h3>无</h3>
+        <p></p>
+        <ion-note item-end></ion-note>
+      </ion-item>
 
-  <div padding>
-    <button ion-button block (click)="back()" >返回</button>
+    </ion-list>
+
+    <div padding>
+      <button ion-button block (click)="back()" >返回</button>
+    </div>
   </div>
-
 </ion-content>
 
