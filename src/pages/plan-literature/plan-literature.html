@@ -9,7 +9,9 @@
       <h3>{{entity.label}}</h3>
       <!--<p>???</p>-->
     </ion-item>
-    <div *ngIf="details.data.length==0 || details==null" class="blank_tip">暂无数据.......</div>
+    <ion-item *ngIf="details.data.length==0 || details==null">
+      <h3>暂无数据.......</h3>
+    </ion-item>
   </ion-list>
 
   <ion-list *ngIf="params.tabType == 'drug' && details">
@@ -22,7 +24,9 @@
       <h3>{{entity.label}}</h3>
       <!--<p>???</p>-->
     </ion-item>
-    <div *ngIf="details.data.length==0 || details==null" class="blank_tip">暂无数据.......</div>
+    <ion-item *ngIf="details.data.length==0 || details==null">
+      <h3>暂无数据.......</h3>
+    </ion-item>
   </ion-list>
 
   <ion-list *ngIf="params.tabType == 'source' && details">
@@ -35,7 +39,9 @@
       <h3>{{entity.name}}</h3>
       <p>{{entity.disease}}</p>
     </ion-item>
-    <div *ngIf="details.data.length==0 || details==null" class="blank_tip">暂无数据.......</div>
+    <ion-item *ngIf="details.data.length==0 || details==null">
+      <h3>暂无数据.......</h3>
+    </ion-item>
   </ion-list>
 
   <div padding>

@@ -68,7 +68,9 @@
 
       </ion-item>
     </ion-list>
-    <div *ngIf="details.length==0 || details==null" class="blank_tip">暂无数据.......</div>
+    <ion-item *ngIf="details.data.length==0 || details==null">
+      <h3>暂无数据.......</h3>
+    </ion-item>
   </div>
 
   <div padding>

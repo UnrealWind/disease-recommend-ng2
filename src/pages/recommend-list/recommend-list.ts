@@ -78,7 +78,6 @@ export class RecommendListPage {
         this.schemeList = this.filterScheme(this.recommendList.data.recom_scheme);//推荐方案列表
         this.absoluteList = this.recommendList.data.absolute_contraindication;//绝对列表
         this.relativeList = this.recommendList.data.relative_contraindication;//相对列表
-        console.log(this.absoluteList,963);
         loading.dismiss();
       })
   }
