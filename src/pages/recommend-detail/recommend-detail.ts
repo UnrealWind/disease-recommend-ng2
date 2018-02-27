@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,ModalController } from 'ionic-angular';
+import {HttpClient} from "@angular/common/http";
+import { ConstantProvider } from "../../providers/constant/constant"
 
 import { RecommendBasicPage} from "../recommend-basic/recommend-basic";
 import { PlanIntroducePage} from "../plan-introduce/plan-introduce"
@@ -8,6 +10,8 @@ import { RiskFactorPage} from "../risk-factor/risk-factor";
 import { PlanLiteraturePage} from "../plan-literature/plan-literature";
 import { TypicalRecordPage} from "../typical-record/typical-record";
 
+import { RecommendResonComponent} from "../../components/recommend-reson/recommend-reson";
+
 @IonicPage()
 @Component({
   selector: 'page-recommend-detail',
@@ -15,12 +19,18 @@ import { TypicalRecordPage} from "../typical-record/typical-record";
 })
 export class RecommendDetailPage {
   params;
-  recommendLists;
+  recommendLists;//方案列表
+  suggestList;//推荐理由
   user;
   result;
   constructor(public navCtrl: NavController,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              public Http:HttpClient,
+              public modalCtrl: ModalController,
+              public Constant:ConstantProvider,
+              public loadingCtrl:LoadingController) {
     this.params = this.navParams.data.parameter;
+    console.log(this.params)
     this.result = this.navParams.data;
 
     this.recommendLists =  [
@@ -54,11 +64,11 @@ export class RecommendDetailPage {
         id:'6',
         icon:'ios-create-outline'
       },
-      {
-        label: "典型病历",
-        id:'7',
-        icon:'ios-create-outline'
-      },
+      // {
+      //   label: "典型病历",
+      //   id:'7',
+      //   icon:'ios-create-outline'
+      // },
       {
         label: "标准来源指南",
         id:'8',
@@ -70,6 +80,24 @@ export class RecommendDetailPage {
 
   back (){
     this.navCtrl.pop()
+  }
+
+  ngOnInit(): void {
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: '加载中……'
+    });
+    loading.present();
+
+    this.Http.get( this.Constant.BackstageUrl + this.params.discribe +'/recommendation/reason?id='+this.params.id+'&uuid='+this.params.uuid+"&class_id="+this.params.classId)
+      .subscribe((res:Response)=>{
+        this.suggestList = res;
+        loading.dismiss();
+      })
+  }
+
+  viewRecommendReson(){
+    this.modalCtrl.create(RecommendResonComponent,this.suggestList).present();
   }
 
   viewRecommendDetail(recommendList){

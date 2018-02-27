@@ -15,23 +15,22 @@ export class RecommendResonComponent {
               public Http:HttpClient,
               public Constant:ConstantProvider,
               public loadingCtrl:LoadingController) {
-    this.params = this.navParams.data;
-    console.log(this.params,456)
+    this.details = this.navParams.data;
   }
 
-  ngOnInit(): void {
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    loading.present();
-
-    this.Http.get( this.Constant.BackstageUrl + this.params.discribe +'/recommendation/reason?id='+this.params.id+'&uuid='+this.params.uuid+"&class_id="+this.params.class_id)
-      .subscribe((res:Response)=>{
-        this.details = res;
-        loading.dismiss();
-      })
-  }
+  // ngOnInit(): void {
+  //   let loading = this.loadingCtrl.create({
+  //     spinner: 'crescent',
+  //     content: '加载中……'
+  //   });
+  //   loading.present();
+  //
+  //   this.Http.get( this.Constant.BackstageUrl + this.params.discribe +'/recommendation/reason?id='+this.params.id+'&uuid='+this.params.uuid+"&class_id="+this.params.class_id)
+  //     .subscribe((res:Response)=>{
+  //       this.details = res;
+  //       loading.dismiss();
+  //     })
+  // }
 
   back (){
     this.navCtrl.pop()
