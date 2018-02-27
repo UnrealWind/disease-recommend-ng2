@@ -3,7 +3,6 @@
     <ion-list  *ngFor = "let formData of tagFormDatas;let index = index">
       <ion-list-header>
         <ion-icon name="md-desktop" color="danger"></ion-icon>{{formData.label}}
-        <button *ngIf="index == 0" ion-button outline item-end (click)="viewRecommendReson()">查看推荐理由</button>
       </ion-list-header>
 
       <ion-item *ngFor = "let input of formData.inputs">
