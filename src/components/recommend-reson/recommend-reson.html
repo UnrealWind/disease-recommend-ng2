@@ -10,6 +10,7 @@
         </p>
       </li>
     </ol>
+    <div *ngIf="details.length==0 || details==null" class="blank_tip">暂无数据.......</div>
   </ion-list>
   <div padding>
     <button ion-button block (click)="back()" >返回</button>

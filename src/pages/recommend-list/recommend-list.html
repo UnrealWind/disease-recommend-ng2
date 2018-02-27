@@ -14,6 +14,7 @@
       <p>{{entity.drugNames}}</p>
       <ion-note item-end>{{entity.type}}</ion-note>
     </ion-item>
+    <div *ngIf="schemeList.length==0 || schemeList==null" class="blank_tip">暂无数据.......</div>
   </ion-list>
 
   <ion-list *ngIf="relativeList">
@@ -25,6 +26,7 @@
       <p>{{entity.drug_names.label}}</p>
       <ion-note item-end>{{entity.type}}</ion-note>
     </ion-item>
+    <div *ngIf="relativeList.length==0 || relativeList==null" class="blank_tip">暂无数据.......</div>
   </ion-list>
 
   <ion-list *ngIf="absoluteList">
@@ -36,7 +38,9 @@
       <p>{{entity.drug_names.label}}</p>
       <ion-note item-end>{{entity.type}}</ion-note>
     </ion-item>
+    <div *ngIf="absoluteList.length==0 || absoluteList==null" class="blank_tip">暂无数据.......</div>
   </ion-list>
+
 
   <ion-list *ngIf="doctorList">
     <ion-list-header>
@@ -47,7 +51,7 @@
       <p>剂量：{{entity.doseage}}{{entity.doseUnit}} &nbsp;&nbsp;&nbsp; 频次{{entity.freq}}</p>
       <ion-note item-end>{{entity.repeatIndicator}}</ion-note>
     </ion-item>
-
+    <div *ngIf="doctorList.length==0 || doctorList==null" class="blank_tip">暂无数据.......</div>
   </ion-list>
 </ion-content>
 

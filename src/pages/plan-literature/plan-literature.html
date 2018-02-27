@@ -7,8 +7,9 @@
     <!--<ion-item (click)="viewRecommendDetail()" *ngFor="let entity of details.data">-->
     <ion-item *ngFor="let entity of details.data">
       <h3>{{entity.label}}</h3>
-      <p>???</p>
+      <!--<p>???</p>-->
     </ion-item>
+    <div *ngIf="details.data.length==0 || details==null" class="blank_tip">暂无数据.......</div>
   </ion-list>
 
   <ion-list *ngIf="params.tabType == 'drug' && details">
@@ -19,8 +20,9 @@
     <!--<ion-item (click)="viewRecommendDetail()" *ngFor="let entity of details.data">-->
     <ion-item *ngFor="let entity of details.data">
       <h3>{{entity.label}}</h3>
-      <p>???</p>
+      <!--<p>???</p>-->
     </ion-item>
+    <div *ngIf="details.data.length==0 || details==null" class="blank_tip">暂无数据.......</div>
   </ion-list>
 
   <ion-list *ngIf="params.tabType == 'source' && details">
@@ -33,6 +35,7 @@
       <h3>{{entity.name}}</h3>
       <p>{{entity.disease}}</p>
     </ion-item>
+    <div *ngIf="details.data.length==0 || details==null" class="blank_tip">暂无数据.......</div>
   </ion-list>
 
   <div padding>

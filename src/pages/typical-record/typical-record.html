@@ -9,6 +9,7 @@
       <p>{{entity.diagnosis}}</p>
       <ion-note item-end>	{{entity.admission_date_time}}</ion-note>
     </ion-item>
+    <div *ngIf="details.data.length==0 || details==null" class="blank_tip">暂无数据.......</div>
   </ion-list>
 
   <div padding>
