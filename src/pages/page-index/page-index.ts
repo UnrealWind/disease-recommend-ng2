@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 
 import { ListIndexPage} from "../list-index/list-index";
-import { MenusPage} from "../menus/menus";
+/*import { MenusPage} from "../menus/menus";*/
 
 @IonicPage()
 @Component({

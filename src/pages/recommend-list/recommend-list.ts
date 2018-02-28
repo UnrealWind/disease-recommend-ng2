@@ -46,7 +46,7 @@ export class RecommendListPage {
     this.getRecommend(loading);
   }
 
-  getDoctor (){
+  /*getDoctor (){
     let filter = {
       "filter_patiId":this.params.patiId,
       "filter_patiVisitId":this.params.patiVisitId,
@@ -58,7 +58,6 @@ export class RecommendListPage {
     var params = '?filter_patiId='+this.params.patiId+'&filter_patiVisitId='+this.params.patiVisitId+'&class_id='+this.params.classId+'&filter_pageNo=1&filter_pageSize=10';
     this.Http.get(url + params)
       .subscribe((res:Response)=>{
-        //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         this.doctorList = res;
         if(this.doctorList.page!=null){
           this.doctorList = this.doctorList.page.content;
@@ -66,7 +65,7 @@ export class RecommendListPage {
           this.doctorList = [];
         }
       })
-  }
+  }*/
 
   getRecommend (loading){
     var url = this.Constant.BackstageUrl + this.params.discribe +'/recommendation?';
