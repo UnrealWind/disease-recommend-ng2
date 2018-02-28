@@ -85,8 +85,8 @@ export class InputListPage {
   viewRecommend (){
     var idx = 0
     for (var i in this.result.info){
-      idx++
-      this.result.info[i] == false?this.result.info[i] = '0':undefined;
+      idx++;
+      this.result.info[i] == false || this.result.info[i] == ''?this.result.info[i] = '0':undefined;
       this.result.info[i] == true?this.result.info[i] = '1':undefined;
     }
 
