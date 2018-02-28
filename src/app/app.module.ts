@@ -49,28 +49,26 @@ import { FormComponent } from "../components/form/form"
 //推荐理由
 import { RecommendResonComponent} from "../components/recommend-reson/recommend-reson";
 import { ConstantProvider } from '../providers/constant/constant';
+import {LoginPageModule} from "../pages/login/login.module";
+import {ListIndexPageModule} from "../pages/list-index/list-index.module";
+import {PageIndexPageModule} from "../pages/page-index/page-index.module";
+import {InputListPageModule} from "../pages/input-list/input-list.module";
+import {RecommendListPageModule} from "../pages/recommend-list/recommend-list.module";
+import {RecommendDetailPageModule} from "../pages/recommend-detail/recommend-detail.module";
+import {DoctorAdvicePageModule} from "../pages/doctor-advice/doctor-advice.module";
+import {RecommendBasicPageModule} from "../pages/recommend-basic/recommend-basic.module";
+import {PlanIntroducePageModule} from "../pages/plan-introduce/plan-introduce.module";
+import {DepressurizationTargetPageModule} from "../pages/depressurization-target/depressurization-target.module";
+import {RiskFactorPageModule} from "../pages/risk-factor/risk-factor.module";
+import {PlanLiteraturePageModule} from "../pages/plan-literature/plan-literature.module";
+import {TypicalRecordPageModule} from "../pages/typical-record/typical-record.module";
 
 @NgModule({
   declarations: [
-    LoginPage,
     MyApp,
-    ListIndexPage,
-    TabsPage,
-    PageIndexPage,
-    //InputIndexPage,
     FormComponent,
-    InputListPage,
-    RecommendListPage,
-    RecommendDetailPage,
-    DoctorAdvicePage,
-    RecommendBasicPage,
     RecommendResonComponent,
-    PlanIntroducePage,
-    DepressurizationTargetPage,
-    RiskFactorPage,
-    PlanLiteraturePage,
-    TypicalRecordPage,
-    //MenusPage
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +83,22 @@ import { ConstantProvider } from '../providers/constant/constant';
         progress: true
       }
     }),
-    HttpClientModule
+    HttpClientModule,
+    LoginPageModule,
+    ListIndexPageModule,
+    PageIndexPageModule,
+    //InputIndexPage,
+    InputListPageModule,
+    RecommendListPageModule,
+    RecommendDetailPageModule,
+    DoctorAdvicePageModule,
+    RecommendBasicPageModule,
+    PlanIntroducePageModule,
+    DepressurizationTargetPageModule,
+    RiskFactorPageModule,
+    PlanLiteraturePageModule,
+    TypicalRecordPageModule
+    //MenusPage
   ],
   bootstrap: [IonicApp],
   entryComponents: [
