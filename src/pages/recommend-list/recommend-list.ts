@@ -6,8 +6,6 @@ import { ConstantProvider } from "../../providers/constant/constant"
 import { RecommendDetailPage} from "../recommend-detail/recommend-detail";
 import { DoctorAdvicePage } from "../doctor-advice/doctor-advice";
 
-import * as jquery from 'jquery'
-
 @IonicPage()
 @Component({
   selector: 'page-recommend-list',
@@ -44,7 +42,7 @@ export class RecommendListPage {
       content: '加载中……'
     });
     loading.present();
-    this.getDoctor();
+    //this.getDoctor();
     this.getRecommend(loading);
   }
 
