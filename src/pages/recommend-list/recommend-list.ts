@@ -80,21 +80,27 @@ export class RecommendListPage {
   }
 
   filterScheme (list){
-    list.forEach(function(entity,idx){
-      var recomName = [],drugNames = [],type = "药品";
-      if(entity.scheme.length>0){
-        entity.scheme.forEach(function(item,idy){
-          recomName.push(item.recom_name);
-          drugNames.push(item.drug_names.label);
-          if(item.type != "药品"){
-            type = "";
-          }
-        });
-        entity.recomName = recomName.join(',');
-        entity.drugNames = drugNames.join(',');
-        entity.type = type;
-      }
-    });
+    if(list.length>0){
+      list.forEach(function(entity,idx){
+        var recomName = [],drugNames = [],type = "药品";
+        if(entity.scheme.length>0){
+          entity.scheme.forEach(function(item,idy){
+            recomName.push(item.recom_name);
+            if(item.drug_names){
+              drugNames.push(item.drug_names.label);
+            }
+            if(item.type != "药品"){
+              type = "";
+            }
+          });
+          entity.recomName = recomName.join(',');
+          entity.drugNames = drugNames.join(',');
+          entity.type = type;
+        }
+      });
+    }else{
+      list = [];
+    }
     return list;
   }
 
