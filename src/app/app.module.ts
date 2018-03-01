@@ -49,6 +49,8 @@ import { FormComponent } from "../components/form/form"
 //推荐理由
 import { RecommendResonComponent} from "../components/recommend-reson/recommend-reson";
 import { ConstantProvider } from '../providers/constant/constant';
+
+//以前写的有问题，应该在这里增加子页面的module
 import {LoginPageModule} from "../pages/login/login.module";
 import {ListIndexPageModule} from "../pages/list-index/list-index.module";
 import {PageIndexPageModule} from "../pages/page-index/page-index.module";
