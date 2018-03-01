@@ -8,7 +8,7 @@
       <h3>{{entity.fieldName}}</h3>
       <p>{{entity.dangerHandle}}</p>
     </ion-item>
-    <ion-item *ngIf="details.data.length==0 || details==null">
+    <ion-item *ngIf="(details.data && details.data.length==0) || details==null || details.data==null">
       <h3>暂无数据.......</h3>
     </ion-item>
   </ion-list>
