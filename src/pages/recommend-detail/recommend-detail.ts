@@ -30,7 +30,7 @@ export class RecommendDetailPage {
               public Constant:ConstantProvider,
               public loadingCtrl:LoadingController) {
     this.params = this.navParams.data.parameter;
-    console.log(this.params)
+    console.log(this.params);
     this.result = this.navParams.data;
 
     this.recommendLists =  [

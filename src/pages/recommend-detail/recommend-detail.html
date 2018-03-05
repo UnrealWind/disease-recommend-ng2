@@ -2,12 +2,8 @@
 <ion-content>
 
   <ion-list>
-    <ion-list-header *ngIf="params.type == 'recommend'">
-      <ion-icon name="md-desktop" color="danger"></ion-icon>推荐列表
-      <button ion-button outline item-end (click)="back()">返回</button>
-    </ion-list-header>
-    <ion-list-header *ngIf="params.type == 'avoid'">
-      <ion-icon name="md-desktop" color="danger"></ion-icon>禁忌列表
+    <ion-list-header>
+      <ion-icon name="md-desktop" color="danger"></ion-icon>{{params.type}}
       <button ion-button outline item-end (click)="back()">返回</button>
     </ion-list-header>
     <ion-item *ngIf="suggestList" class="recommend-list">

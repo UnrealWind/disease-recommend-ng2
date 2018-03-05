@@ -45,7 +45,8 @@
       </ion-item>
       <ion-item>
         <h3>禁忌症状</h3>
-        <p>{{entity.relativeContraindication}}</p>
+        <p *ngIf="!(entity.relativeContraindication == '' || entity.relativeContraindication==null)">{{entity.relativeContraindication}}</p>
+        <p *ngIf="entity.relativeContraindication == '' || entity.relativeContraindication==null">无</p>
       </ion-item>
       <ion-item>
         <h3>注意事项</h3>

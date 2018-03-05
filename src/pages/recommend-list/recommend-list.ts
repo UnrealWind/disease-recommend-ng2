@@ -118,9 +118,9 @@ export class RecommendListPage {
       },
       result:this.recommend
     };
-    if(type == 'recommend'){
+    if(type == '推荐理由'){
       filter.parameter.name = entity.recomName;
-    }else if(type == 'avoid'){
+    }else{
       filter.parameter.name = entity.drug_name
     }
     this.navCtrl.push(RecommendDetailPage,filter)
