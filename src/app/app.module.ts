@@ -43,11 +43,14 @@ import { RiskFactorPage} from "../pages/risk-factor/risk-factor";
 import { PlanLiteraturePage} from "../pages/plan-literature/plan-literature";
 //典型病例
 import { TypicalRecordPage} from "../pages/typical-record/typical-record";
+//查看文献
+import { ViewPdfPage} from "../pages/view-pdf/view-pdf";
 
 //表单组件
 import { FormComponent } from "../components/form/form"
 //推荐理由
 import { RecommendResonComponent} from "../components/recommend-reson/recommend-reson";
+//默认配置文件
 import { ConstantProvider } from '../providers/constant/constant';
 
 //以前写的有问题，应该在这里增加子页面的module
@@ -64,6 +67,7 @@ import {DepressurizationTargetPageModule} from "../pages/depressurization-target
 import {RiskFactorPageModule} from "../pages/risk-factor/risk-factor.module";
 import {PlanLiteraturePageModule} from "../pages/plan-literature/plan-literature.module";
 import {TypicalRecordPageModule} from "../pages/typical-record/typical-record.module";
+import {ViewPdfPageModule} from "../pages/view-pdf/view-pdf.module";
 
 @NgModule({
   declarations: [
@@ -99,7 +103,8 @@ import {TypicalRecordPageModule} from "../pages/typical-record/typical-record.mo
     DepressurizationTargetPageModule,
     RiskFactorPageModule,
     PlanLiteraturePageModule,
-    TypicalRecordPageModule
+    TypicalRecordPageModule,
+    ViewPdfPageModule
     //MenusPage
   ],
   bootstrap: [IonicApp],
@@ -122,6 +127,7 @@ import {TypicalRecordPageModule} from "../pages/typical-record/typical-record.mo
     RiskFactorPage,
     PlanLiteraturePage,
     TypicalRecordPage,
+    ViewPdfPage
     //MenusPage
   ],
   providers: [
