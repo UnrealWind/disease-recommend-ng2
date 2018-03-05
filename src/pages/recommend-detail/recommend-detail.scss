@@ -18,7 +18,7 @@ page-recommend-detail {
   .recommend-list h3.content {
     position:relative;
     line-height:1.4em;
-    height:5.6em;
+    max-height:5.6em;
     overflow:hidden;
   }
   .recommend-list h3.content:after {

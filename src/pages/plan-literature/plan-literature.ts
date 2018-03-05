@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-ang
 
 import {HttpClient} from "@angular/common/http";
 import { ConstantProvider } from "../../providers/constant/constant"
+import { ViewPdfPage} from "../view-pdf/view-pdf";
+
 @IonicPage()
 @Component({
   selector: 'page-plan-literature',
