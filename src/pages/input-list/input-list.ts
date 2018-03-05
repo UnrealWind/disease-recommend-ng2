@@ -31,7 +31,7 @@ export class InputListPage {
       spinner: 'crescent',
       content: '加载中……'
     });
-    loading.present();
+    //loading.present();
     this.getFormDatas(loading);
     //this.getResult(loading);
   }
@@ -50,7 +50,7 @@ export class InputListPage {
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         this.formDatas = res;
         this.extractResult ();
-        loading.dismiss();
+        //loading.dismiss();
       })
   }
 
