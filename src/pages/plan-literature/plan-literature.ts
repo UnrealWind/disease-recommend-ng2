@@ -27,6 +27,7 @@ export class PlanLiteraturePage {
       content: '加载中……'
     });
     loading.present();
+
     if(this.params.tabType == 'plan'){
       var url = '/scheme/literature';
       this.getDetails(url,loading);
@@ -39,13 +40,21 @@ export class PlanLiteraturePage {
       this.getDetails(url,loading);
     }
   }
-
+  
   getDetails (url,loading){
     this.Http.get(this.Constant.BackstageUrl+this.params.discribe+url+'?id='+this.params.id+'&uuid='+this.params.uuid)
       .subscribe((res:Response)=>{
         this.details = res;
         loading.dismiss();
       })
+  }
+
+  viewPDF(id,type){
+    this.navCtrl.push(ViewPdfPage,{
+      'id':id,
+      'type':type,
+      'discribe':this.params.discribe
+    })
   }
 
   back(){
