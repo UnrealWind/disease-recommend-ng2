@@ -27,27 +27,25 @@ export class PlanLiteraturePage {
       content: '加载中……'
     });
     loading.present();
-
     if(this.params.tabType == 'plan'){
-      this.Http.get(this.Constant.BackstageUrl+this.params.discribe +'/scheme/literature?id='+this.params.id+'&uuid='+this.params.uuid)
-        .subscribe((res:Response)=>{
-          this.details = res;
-          loading.dismiss();
-        })
-    }else if(this.params.tabType == 'drug'){
-      this.Http.get(this.Constant.BackstageUrl+this.params.discribe +'/drug/literature?id='+this.params.id+'&uuid='+this.params.uuid)
-        .subscribe((res:Response)=>{
-          this.details = res;
-          loading.dismiss();
-        })
+      var url = '/scheme/literature';
+      this.getDetails(url,loading);
+    }else if(this.params.tabType == 'drug') {
+      var url = '/drug/literature';
+      this.getDetails(url,loading);
     }
     else if(this.params.tabType == 'source'){
-      this.Http.get(this.Constant.BackstageUrl+this.params.discribe +'/guide?id='+this.params.id+'&uuid='+this.params.uuid)
-        .subscribe((res:Response)=>{
-          this.details = res;
-          loading.dismiss();
-        })
+      var url = '/guide';
+      this.getDetails(url,loading);
     }
+  }
+
+  getDetails (url,loading){
+    this.Http.get(this.Constant.BackstageUrl+this.params.discribe+url+'?id='+this.params.id+'&uuid='+this.params.uuid)
+      .subscribe((res:Response)=>{
+        this.details = res;
+        loading.dismiss();
+      })
   }
 
   back(){
