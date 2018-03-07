@@ -2,4 +2,134 @@ page-view-pdf {
   canvas {
     width:100%;
   }
+
+  //.footer {
+  //  background-image: url(../../../assets/imgs/pdf/toolbar_background.png);
+  //  height: 4rem;
+  //  position: absolute;
+  //  bottom: 0;
+  //  left: 0;
+  //  right: 0;
+  //  z-index: 1;
+  //  box-shadow: 0 -0.2rem 0.5rem rgba(50, 50, 50, 0.75);
+  //}
+  //
+  //.toolbarButton {
+  //  display: block;
+  //  padding: 0;
+  //  margin: 0;
+  //  border-width: 0;
+  //  background-position: center center;
+  //  background-repeat: no-repeat;
+  //  background-color: transparent;
+  //}
+  //
+  //.toolbarButton.pageUp {
+  //  position: absolute;
+  //  width: 18%;
+  //  height: 100%;
+  //  left: 0;
+  //  background-image: url(../../../assets/imgs/pdf/icon_previous_page.png);
+  //  background-size: 2rem;
+  //}
+  //
+  //.toolbarButton.pageDown {
+  //  position: absolute;
+  //  width: 18%;
+  //  height: 100%;
+  //  left: 18%;
+  //  background-image: url(../../../assets/imgs/pdf/icon_next_page.png);
+  //  background-size: 2rem;
+  //}
+  //
+  //
+  //#pageNumber {
+  //  -moz-appearance: textfield; /* hides the spinner in moz */
+  //  position: absolute;
+  //  width: 28%;
+  //  height: 100%;
+  //  left: 36%;
+  //  text-align: center;
+  //  border: 0;
+  //  background-color: transparent;
+  //  font-size: 1.2rem;
+  //  color: #FFF;
+  //  background-image: url(../../../assets/imgs/pdf/div_line_left.png), url(../../../assets/imgs/pdf/div_line_right.png);
+  //  background-repeat: no-repeat;
+  //  background-position: left, right;
+  //  background-size: 0.2rem, 0.2rem;
+  //}
+  //
+  //.toolbarButton.zoomOut {
+  //  position: absolute;
+  //  width: 18%;
+  //  height: 100%;
+  //  left: 64%;
+  //  background-image: url(../../../assets/imgs/pdf/icon_zoom_out.png);
+  //  background-size: 2.4rem;
+  //}
+  //
+  //.toolbarButton.zoomIn {
+  //  position: absolute;
+  //  width: 18%;
+  //  height: 100%;
+  //  left: 82%;
+  //  background-image: url(../../../assets/imgs/pdf/icon_zoom_in.png);
+  //  background-size: 2.4rem;
+  //}
+  //.disabled {
+  //  opacity: 0.3;
+  //}
+  //
+  //.hidden {
+  //  display: none;
+  //}
+  //[hidden] {
+  //  display: none !important;
+  //}
+
+  //去掉input类型为number的上下键
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type="number"]{
+    -moz-appearance: textfield;
+  }
+
+  ion-list-header.list-header{
+    height:0.8rem;
+    width:100%;
+    background-color:#555;
+  }
+  .disabled {
+    opacity: 0.3;
+  }
+  ion-list ion-list-header .pageUp{
+    background-color:#555;
+  }
+  ion-list ion-list-header .pageUp ion-icon{
+    margin:0;
+    color:#fff;
+    font-weight:700;
+  }
+  ion-list ion-list-header input{
+    width:4rem;
+    border-radius: 0;
+    border:solid #333 1px;
+    background-color:#888
+  }
+  ion-list ion-list-header span{
+    color:#fff;
+  }
+  ion-list ion-list-header input{
+    color:#fff;
+    text-align: center;
+  }
+
+  .outside{
+    -moz-box-shadow: 0px 1px 5px #c70000; /* 老的 Firefox */
+    box-shadow: 0px 1px 5px #c70000;
+    border:solid #c70000 1px;
+  }
 }
