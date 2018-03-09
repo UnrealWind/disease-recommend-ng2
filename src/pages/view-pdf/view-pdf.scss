@@ -1,92 +1,18 @@
 page-view-pdf {
   canvas {
     width:100%;
+    overflow: scroll;
+  }
+  .scroll-content{
+    overflow: scroll;
   }
 
-  //.footer {
-  //  background-image: url(../../../assets/imgs/pdf/toolbar_background.png);
-  //  height: 4rem;
-  //  position: absolute;
-  //  bottom: 0;
-  //  left: 0;
-  //  right: 0;
-  //  z-index: 1;
-  //  box-shadow: 0 -0.2rem 0.5rem rgba(50, 50, 50, 0.75);
-  //}
-  //
-  //.toolbarButton {
-  //  display: block;
-  //  padding: 0;
-  //  margin: 0;
-  //  border-width: 0;
-  //  background-position: center center;
-  //  background-repeat: no-repeat;
-  //  background-color: transparent;
-  //}
-  //
-  //.toolbarButton.pageUp {
-  //  position: absolute;
-  //  width: 18%;
-  //  height: 100%;
-  //  left: 0;
-  //  background-image: url(../../../assets/imgs/pdf/icon_previous_page.png);
-  //  background-size: 2rem;
-  //}
-  //
-  //.toolbarButton.pageDown {
-  //  position: absolute;
-  //  width: 18%;
-  //  height: 100%;
-  //  left: 18%;
-  //  background-image: url(../../../assets/imgs/pdf/icon_next_page.png);
-  //  background-size: 2rem;
-  //}
-  //
-  //
-  //#pageNumber {
-  //  -moz-appearance: textfield; /* hides the spinner in moz */
-  //  position: absolute;
-  //  width: 28%;
-  //  height: 100%;
-  //  left: 36%;
-  //  text-align: center;
-  //  border: 0;
-  //  background-color: transparent;
-  //  font-size: 1.2rem;
-  //  color: #FFF;
-  //  background-image: url(../../../assets/imgs/pdf/div_line_left.png), url(../../../assets/imgs/pdf/div_line_right.png);
-  //  background-repeat: no-repeat;
-  //  background-position: left, right;
-  //  background-size: 0.2rem, 0.2rem;
-  //}
-  //
-  //.toolbarButton.zoomOut {
-  //  position: absolute;
-  //  width: 18%;
-  //  height: 100%;
-  //  left: 64%;
-  //  background-image: url(../../../assets/imgs/pdf/icon_zoom_out.png);
-  //  background-size: 2.4rem;
-  //}
-  //
-  //.toolbarButton.zoomIn {
-  //  position: absolute;
-  //  width: 18%;
-  //  height: 100%;
-  //  left: 82%;
-  //  background-image: url(../../../assets/imgs/pdf/icon_zoom_in.png);
-  //  background-size: 2.4rem;
-  //}
-  //.disabled {
-  //  opacity: 0.3;
-  //}
-  //
-  //.hidden {
-  //  display: none;
-  //}
-  //[hidden] {
-  //  display: none !important;
-  //}
+  .scroll-box {
+    width:100%;
+    overflow: scroll;
+    margin:0 auto;
+    margin-top:4rem;
+  }
 
   //去掉input类型为number的上下键
   input::-webkit-outer-spin-button,
@@ -101,6 +27,12 @@ page-view-pdf {
     height:0.8rem;
     width:100%;
     background-color:#555;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1;
+    margin:0;
   }
   .disabled {
     opacity: 0.3;
@@ -131,5 +63,15 @@ page-view-pdf {
     -moz-box-shadow: 0px 1px 5px #c70000; /* 老的 Firefox */
     box-shadow: 0px 1px 5px #c70000;
     border:solid #c70000 1px;
+  }
+
+  .splitToolbarButtonSeparator{
+    padding: 8px 0;
+    width: 1px;
+    background-color: hsla(0,0%,0%,.5);
+    z-index: 99;
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
+    display: inline-block;
+    margin: 5px 0;
   }
 }

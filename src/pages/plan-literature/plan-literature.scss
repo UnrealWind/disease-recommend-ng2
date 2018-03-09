@@ -1,5 +1,6 @@
 page-plan-literature {
   .list .item .label h3{
-    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

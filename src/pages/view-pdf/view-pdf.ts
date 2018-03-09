@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams ,LoadingController} from 'ionic-ang
 
 import { ConstantProvider } from "../../providers/constant/constant";
 import * as pdfjs from "pdfjs-dist";
+import * as $ from "jquery";
+
 @IonicPage()
 @Component({
   selector: 'page-view-pdf',
@@ -14,7 +16,6 @@ export class ViewPdfPage {
   totalPages;
   currentPage = 1;
   pdfDocument;
-  pdfViewer;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public Constant:ConstantProvider,
@@ -80,13 +81,13 @@ export class ViewPdfPage {
   }
 
   getPage(page){
+    var that = this;
       if(!(Number(page)<1 || Number(page)>Number(this.totalPages))){
-        this.pdfDocument.getPage(page).then(function(page) {
+        that.pdfDocument.getPage(page).then(function(page) {
           console.log('Page loaded');
 
           var scale = 1.5;
           var viewport = page.getViewport(scale);
-
           var canvas : any = document.getElementById('the-canvas');
           var context = canvas.getContext('2d');
           canvas.height = viewport.height;
@@ -119,6 +120,15 @@ export class ViewPdfPage {
   nextPage(){
     this.currentPage+=1;
     this.getPage(this.currentPage);
+  }
+
+  changeRate(operate){
+    var width = $('.scroll-box').width();
+    if(operate == 'large'){
+      $('.scroll-box').width(width*1.2);
+    }else{
+      $('.scroll-box').width(width/1.2);
+    }
   }
 
   back(){

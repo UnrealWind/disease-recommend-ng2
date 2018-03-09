@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-ang
 
 import {HttpClient} from "@angular/common/http";
 import { ConstantProvider } from "../../providers/constant/constant"
-import { ViewPdfPage} from "../view-pdf/view-pdf";
+import { ViewPdfPage } from "../view-pdf/view-pdf";
 
 @IonicPage()
 @Component({
@@ -40,7 +40,7 @@ export class PlanLiteraturePage {
       this.getDetails(url,loading);
     }
   }
-  
+
   getDetails (url,loading){
     this.Http.get(this.Constant.BackstageUrl+this.params.discribe+url+'?id='+this.params.id+'&uuid='+this.params.uuid)
       .subscribe((res:Response)=>{
