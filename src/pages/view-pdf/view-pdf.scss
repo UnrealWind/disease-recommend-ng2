@@ -65,13 +65,42 @@ page-view-pdf {
     border:solid #c70000 1px;
   }
 
-  .splitToolbarButtonSeparator{
+  .splitToolbarButtonRight{
     padding: 8px 0;
     width: 1px;
     background-color: hsla(0,0%,0%,.5);
     z-index: 99;
     box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
     display: inline-block;
-    margin: 5px 0;
+    position: absolute;
+    right:37px;
+    margin:5px 0;
+  }
+  .splitToolbarButtonLeft{
+    padding: 8px 0;
+    width: 1px;
+    background-color: hsla(0,0%,0%,.5);
+    z-index: 99;
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
+    display: inline-block;
+    position: absolute;
+    left:45px;
+    margin:5px 0;
+  }
+  .pageZoom{
+    padding:5px 10px;
+    background-color: transparent;
+    //border:solid #333 1px;
+  }
+  .pageZoomLeft{
+    margin-right:-3px;
+  }
+  .pageZoomRight{
+    margin-left:-3px;
+  }
+  ion-list ion-list-header .pageZoom ion-icon{
+    margin:0;
+    color:#fff;
+    font-weight:700;
   }
 }

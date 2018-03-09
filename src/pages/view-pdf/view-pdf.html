@@ -2,16 +2,17 @@
 
   <ion-list>
     <ion-list-header>
-      <button class="pageUp" title="Previous Page" id="previous" (click)="prePage()" [ngClass]="{'disabled':currentPage<=1}">
-        <ion-icon name="md-arrow-round-up"></ion-icon></button>|
-      <button class="pageUp" title="Next Page" id="next" (click)="nextPage()" [ngClass]="{'disabled':currentPage>=totalPages}">
+      <button class="pageZoom pageZoomLeft" title="Previous Page" id="previous" (click)="prePage()" [ngClass]="{'disabled':currentPage<=1}">
+        <ion-icon name="md-arrow-round-up"></ion-icon></button>
+      <div class="splitToolbarButtonLeft"></div>
+      <button class="pageZoom pageZoomRight" title="Next Page" id="next" (click)="nextPage()" [ngClass]="{'disabled':currentPage>=totalPages}">
         <ion-icon name="md-arrow-round-down"></ion-icon></button>
       <span>&nbsp;&nbsp;&nbsp;页码:</span><input type="number" id="pageNumber" class="pageNumber" [ngClass]="{'outside':(currentPage<1 || currentPage>totalPages)}"
-             value="1" size="4" min="1" [(ngModel)]="currentPage" (keyup)="getPage(currentPage)" ><span>/{{totalPages}}</span>
+             value="1" size="4" min="1" [(ngModel)]="currentPage" (blur)="getPage(currentPage)" ><span>/{{totalPages}}</span>
       <div style="float: right;">
-        <button class="pageUp" (click)="changeRate('large')"><ion-icon name="md-add"></ion-icon></button>
-        |
-        <button class="pageUp" (click)="changeRate('small')"><ion-icon name="md-remove"></ion-icon></button>
+        <button class="pageZoom pageZoomLeft" id="pageZoom" (click)="changeRate('large')"><ion-icon name="md-add"></ion-icon></button>
+        <div class="splitToolbarButtonRight"></div>
+        <button class="pageZoom pageZoomRight" (click)="changeRate('small')"><ion-icon name="md-remove"></ion-icon></button>
       </div>
     </ion-list-header>
   </ion-list>

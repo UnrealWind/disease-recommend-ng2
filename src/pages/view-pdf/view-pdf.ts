@@ -33,7 +33,7 @@ export class ViewPdfPage {
     });
     loading.present();
     this.tagPDFUrl = this.Constant.BackstageUrl+this.params.discribe+'/literature/'+this.params.type+'/'+this.params.id
-    this.viewPDF (loading)
+    this.viewPDF (loading);
   }
 
 
