@@ -29,15 +29,12 @@ export class PlanLiteraturePage {
     loading.present();
 
     if(this.params.tabType == 'plan'){
-      var url = '/scheme/literature';
-      this.getDetails(url,loading);
+      this.getDetails('/scheme/literature',loading);
     }else if(this.params.tabType == 'drug') {
-      var url = '/drug/literature';
-      this.getDetails(url,loading);
+      this.getDetails('/drug/literature',loading);
     }
     else if(this.params.tabType == 'source'){
-      var url = '/guide';
-      this.getDetails(url,loading);
+      this.getDetails('/guide',loading);
     }
   }
 
