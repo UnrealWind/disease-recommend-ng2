@@ -21,9 +21,12 @@ export class InputListPage {
               public loadingCtrl:LoadingController,
               public constant:ConstantProvider){
       this.parameter = {
-        "discribe":"hbp",
-        "class_id":"100037"
+        "discribe":"",
+        "class_id":""
       };
+
+      this.parameter.discribe = navParams.get("discribe")||'hbp';
+      this.parameter.class_id = navParams.get("class_id")||'100037'
   }
 
   ngOnInit(): void {

@@ -9,6 +9,7 @@ import { InputListPage} from "../pages/input-list/input-list";
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   rootPage:any = InputListPage;
 
@@ -20,5 +21,6 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+
 }
 

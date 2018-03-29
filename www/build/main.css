@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -25737,6 +25738,17 @@ ion-list ion-grid .col:first-child {
   margin-bottom: -0.4rem;
 }
 
+.blank_tip {
+  color: #31708f;
+  border: solid #bce8f1 1px;
+  background-color: #d9edf7;
+  min-height: 4rem;
+  line-height: 4rem;
+  padding-left: 2rem;
+  margin: 5px;
+  border-radius: 4px;
+}
+
 recommend-reson ol li p {
   text-indent: 1rem;
   padding-right: 1.5rem;
@@ -25775,20 +25787,74 @@ page-depressurization-target .list p {
   line-height: 2rem;
 }
 
-page-input-index ion-list ion-grid .col.noBorder {
-  border-left: 0;
-}
-
-page-input-index ion-list ion-grid .col, page-input-index ion-list ion-grid .col:first-child {
-  border-bottom: 1px solid #ccc;
-}
-
 page-input-list .list {
   border-top: 1px solid #ccc;
 }
 
 page-input-list .list-ios > .item-block:first-child {
   border-top: 0;
+}
+
+page-input-list .fab[mini] .fab-close-icon {
+  line-height: 2.7rem;
+}
+
+page-input-list .item-ios .item-button {
+  padding: 1.2rem 0.5rem;
+}
+
+page-input-list .fab[mini] {
+  width: 2.7rem;
+  height: 2.7rem;
+}
+
+page-input-list ion-fab[top][edge] {
+  top: 0px;
+  right: 9rem;
+}
+
+page-input-list ion-fab-list {
+  width: auto;
+  margin: 4.1rem 0;
+}
+
+page-input-list ion-fab-list .fab {
+  border-radius: 0;
+  margin: 0;
+}
+
+page-input-list ion-fab-list .fab .button-inner {
+  text-align: left;
+}
+
+page-input-list ion-fab-list .fab-in-list {
+  width: 11rem;
+  background-color: #fff;
+}
+
+page-input-list ion-fab-list button:first-child {
+  border-top: 1px solid #ccc;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+page-input-list ion-fab-list button {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+page-input-list ion-fab-list button .button-inner {
+  border-bottom: 1px solid #ccc;
+}
+
+page-input-list ion-fab-list button:last-child {
+  border-bottom: 1px solid #ccc;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+page-input-list ion-fab-list button:last-child .button-inner {
+  border-bottom: 0;
 }
 
 page-login {
@@ -25843,12 +25909,54 @@ page-plan-introduce .list .list .item {
   border-top: 1px solid #ccc;
 }
 
-page-recommend-detail ion-list ion-grid .col.noBorder {
+page-plan-literature .list .item .label h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+page-recommend-detail ion-list ion-grid .col-project .col {
   border-left: 0;
+  border-right: 1px solid #ccc;
+}
+
+page-recommend-detail ion-list ion-grid .col.noBorder {
+  border-right: 0;
 }
 
 page-recommend-detail ion-list ion-grid .col, page-recommend-detail ion-list ion-grid .col:first-child {
   border-bottom: 1px solid #ccc;
+}
+
+page-recommend-detail .list-ios .item-block .item-inner {
+  border-bottom: 0;
+}
+
+page-recommend-detail .recommend-list ion-label {
+  white-space: normal;
+}
+
+page-recommend-detail .recommend-list h3.content {
+  position: relative;
+  line-height: 1.4em;
+  max-height: 5.6em;
+  overflow: hidden;
+}
+
+page-recommend-detail .recommend-list h3.content:after {
+  /*content:"...";
+    position:absolute;
+    bottom:0;
+    right:0;
+    left:0;
+    background:#FFF;
+    padding-left:0.2em;*/
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(50%, #FFFFFF)) repeat scroll 0 0 transparent;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF 50%) repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "...";
+  padding: 0 5px 1px 30px;
+  position: absolute;
+  right: 0;
 }
 
 page-risk-factor .list {
@@ -25882,4 +25990,123 @@ page-risk-factor .list p {
   white-space: normal;
   text-indent: 1rem;
   line-height: 2rem;
+}
+
+page-view-pdf canvas {
+  width: 100%;
+  overflow: scroll;
+}
+
+page-view-pdf .scroll-content {
+  overflow: scroll;
+}
+
+page-view-pdf .scroll-box {
+  width: 100%;
+  overflow: scroll;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+page-view-pdf input::-webkit-outer-spin-button,
+page-view-pdf input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+page-view-pdf input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+page-view-pdf ion-list-header.list-header {
+  height: 0.8rem;
+  width: 100%;
+  background-color: #555;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  margin: 0;
+}
+
+page-view-pdf .disabled {
+  opacity: 0.3;
+}
+
+page-view-pdf ion-list ion-list-header .pageUp {
+  background-color: #555;
+}
+
+page-view-pdf ion-list ion-list-header .pageUp ion-icon {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+}
+
+page-view-pdf ion-list ion-list-header input {
+  width: 4rem;
+  border-radius: 0;
+  border: solid #333 1px;
+  background-color: #888;
+}
+
+page-view-pdf ion-list ion-list-header span {
+  color: #fff;
+}
+
+page-view-pdf ion-list ion-list-header input {
+  color: #fff;
+  text-align: center;
+}
+
+page-view-pdf .outside {
+  /* 老的 Firefox */
+  -webkit-box-shadow: 0px 1px 5px #c70000;
+  box-shadow: 0px 1px 5px #c70000;
+  border: solid #c70000 1px;
+}
+
+page-view-pdf .splitToolbarButtonRight {
+  padding: 8px 0;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  display: inline-block;
+  position: absolute;
+  right: 37px;
+  margin: 5px 0;
+}
+
+page-view-pdf .splitToolbarButtonLeft {
+  padding: 8px 0;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  display: inline-block;
+  position: absolute;
+  left: 45px;
+  margin: 5px 0;
+}
+
+page-view-pdf .pageZoom {
+  padding: 5px 10px;
+  background-color: transparent;
+}
+
+page-view-pdf .pageZoomLeft {
+  margin-right: -3px;
+}
+
+page-view-pdf .pageZoomRight {
+  margin-left: -3px;
+}
+
+page-view-pdf ion-list ion-list-header .pageZoom ion-icon {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule ,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule ,DeepLinkConfig} from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -69,6 +69,13 @@ import {PlanLiteraturePageModule} from "../pages/plan-literature/plan-literature
 import {TypicalRecordPageModule} from "../pages/typical-record/typical-record.module";
 import {ViewPdfPageModule} from "../pages/view-pdf/view-pdf.module";
 
+//这里配置的是需要对外暴露url访问模式的地方
+export const deepLinkConfig: DeepLinkConfig = {
+  links: [
+    { component: InputListPage, name: 'InputListPage', segment: 'input-list/:discribe/:class_id' }
+  ]
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -82,7 +89,7 @@ import {ViewPdfPageModule} from "../pages/view-pdf/view-pdf.module";
       menuType: 'push',
       iconMode: 'ios',//安卓icon强制使用ios的icon以及样式
       mode: 'ios',//样式强制使用ios样式
-    }),
+    },deepLinkConfig),
     NotifyModule.forRoot({
       options: { },
       notify: {
