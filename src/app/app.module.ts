@@ -69,7 +69,7 @@ import {PlanLiteraturePageModule} from "../pages/plan-literature/plan-literature
 import {TypicalRecordPageModule} from "../pages/typical-record/typical-record.module";
 import {ViewPdfPageModule} from "../pages/view-pdf/view-pdf.module";
 
-//这里配置的是需要对外暴露url访问模式的地方 test
+//这里配置的是需要对外暴露url访问模式的地方
 export const deepLinkConfig: DeepLinkConfig = {
   links: [
     { component: InputListPage, name: 'InputListPage', segment: 'input-list/:discribe/:class_id' }
