@@ -8,7 +8,6 @@
       </button>
     </ion-fab-list>
   </ion-fab>
-
   <div *ngIf="result && formDatas && parameter.class_id == '100037'">
     <!--<ion-list *ngFor="let formData of formDatas.data;let index = index" >
       <ion-list-header class="jumpHeader">
@@ -524,6 +523,354 @@
         </ion-item>
       </ion-list>
 
+    </ion-list>
+  </div>
+  <div *ngIf="result && formDatas && parameter.class_id == '100059'">
+    <ion-list>
+      <ion-list-header class="jumpHeader">
+        <ion-icon name="ios-rose" color="secondary"></ion-icon>慢性阻塞性肺疾病分期
+        <button class="" ion-button outline item-end (click)="viewRecommend()">推荐方案>></button>
+      </ion-list-header>
+
+      <ion-list>
+        <ion-item>
+          <ion-label>稳定期</ion-label>
+          <ion-select [(ngModel)]="result.info.wdq_type" interface="action-sheet">
+            <ion-option value="0">不详</ion-option>
+            <ion-option value="1">A组</ion-option>
+            <ion-option value="2">B组</ion-option>
+            <ion-option value="3">C组</ion-option>
+            <ion-option value="4">D组</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label>加重期</ion-label>
+          <ion-select [(ngModel)]="result.info.jzq_class" interface="action-sheet">
+            <ion-option value="0">不详</ion-option>
+            <ion-option value="1">1级（无急性呼吸衰竭）</ion-option>
+            <ion-option value="2">2级（无生命危险的呼吸衰竭）</ion-option>
+            <ion-option value="3">3级（有生命危险的呼吸衰竭）</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header class="jumpHeader">
+          <ion-icon name="ios-rose" color="secondary"></ion-icon>病情危重
+        </ion-list-header>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>FEV1</ion-label>
+            <ion-select [(ngModel)]="result.info.fev1_type" interface="action-sheet">
+              <ion-option value="0">不详</ion-option>
+              <ion-option value="1">FEV1<20</ion-option>
+              <ion-option value="2">20<=FEV1<40</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item>
+            <ion-label>SO2小于88%</ion-label>
+            <ion-toggle [(ngModel)]="result.info.if_so2_88"></ion-toggle>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item>
+            <ion-label>嗜酸性粒细胞超过正常值</ion-label>
+            <ion-toggle [(ngModel)]="result.info.if_ssxlxb_over"></ion-toggle>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item>
+            <ion-label>血气分析</ion-label>
+            <ion-toggle [(ngModel)]="result.info.if_xqfx"></ion-toggle>
+          </ion-item>
+        </ion-list>
+        <ion-list *ngIf="result.info.if_xqfx ==1">
+          <ion-item>
+            <ion-label>PH小于等于7.35</ion-label>
+            <ion-toggle [(ngModel)]="result.info.ph_value"></ion-toggle>
+          </ion-item>
+        </ion-list>
+        <ion-list *ngIf="result.info.if_xqfx ==1">
+          <ion-item>
+            <ion-label>PaO2</ion-label>
+            <ion-select [(ngModel)]="result.info.pao2_value" interface="action-sheet">
+              <ion-option value="1">PaO2﹤40mmHg</ion-option>
+              <ion-option value="0">40mmHg≤PaO2﹤55mmHg</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        <ion-list *ngIf="result.info.if_xqfx ==1">
+          <ion-item>
+            <ion-label>PaCO2大于45mmHg</ion-label>
+            <ion-toggle [(ngModel)]="result.info.pco2_value"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>血常规</ion-label>
+            <ion-toggle [(ngModel)]="result.info.if_xcg"></ion-toggle>
+          </ion-item>
+        </ion-list>
+        <ion-list *ngIf="result.info.if_xcg ==1">
+          <ion-item>
+            <ion-label>红细胞压积＞ 55%</ion-label>
+            <ion-toggle [(ngModel)]="result.info.if_hxb_55"></ion-toggle>
+          </ion-item>
+        </ion-list>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header class="jumpHeader">
+        <ion-icon name="ios-rose" color="secondary"></ion-icon>基本信息
+      </ion-list-header>
+
+      <ion-list>
+        <ion-item>
+          <ion-label>性别</ion-label>
+          <ion-select [(ngModel)]="result.info.sex_id" interface="action-sheet">
+            <ion-option value="0">男</ion-option>
+            <ion-option value="1">女</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >年龄</ion-label>
+          <ion-input [(ngModel)]="result.info.age"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >身高</ion-label>
+          <ion-input [(ngModel)]="result.info.body_heig"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item >
+          <ion-label >体重</ion-label>
+          <ion-input [(ngModel)]="result.info.body_weig"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >心率</ion-label>
+          <ion-input [(ngModel)]="result.info.hr"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item >
+          <ion-label >入院收缩压</ion-label>
+          <ion-input [(ngModel)]="result.info.sbp"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >入院舒张压</ion-label>
+          <ion-input [(ngModel)]="result.info.dbp"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header class="jumpHeader">
+        <ion-icon name="ios-rose" color="secondary"></ion-icon>症状
+      </ion-list-header>
+      <ion-list>
+        <ion-item>
+          <ion-label>精神状态</ion-label>
+          <ion-select [(ngModel)]="result.info.js_type" interface="action-sheet">
+            <ion-option value="0">不详</ion-option>
+            <ion-option value="1">正常</ion-option>
+            <ion-option value="2">嗜睡</ion-option>
+            <ion-option value="3">意识障碍</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label>大量持续呕吐</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_cxot"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label>辅助呼吸肌呼吸</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_fzhxj"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >矛盾运动</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_mdyd"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >肋间隙肌群收缩</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_ljss"></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header class="jumpHeader">
+        <ion-icon name="ios-rose" color="secondary"></ion-icon>并发症
+      </ion-list-header>
+      <ion-list>
+        <ion-item >
+          <ion-label>肺动脉高压</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_fdmgy"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >低血压</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_dxy"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label>休克</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_xk"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label>呼吸或心脏骤停</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_hx_xz"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label>哮喘慢阻肺重叠综合征</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_xcmzf"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label>心力衰竭</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_xlsj"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="result.info.if_xlsj == 1">
+        <ion-item>
+          <ion-label>右心衰竭</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_yxsj"></ion-toggle>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item >
+          <ion-label>心律失常</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_xlsc"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="result.info.if_xlsc == 1">
+        <ion-item >
+          <ion-label>室颤</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_sc"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="result.info.if_xlsc == 1">
+        <ion-item >
+          <ion-label>室速</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_ss"></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header class="jumpHeader">
+        <ion-icon name="ios-rose" color="secondary"></ion-icon>伴临床疾患
+      </ion-list-header>
+      <ion-list>
+        <ion-item>
+          <ion-label>消化道溃疡</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_xhdky"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label>癫痫</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_dx"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >妊娠</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_rs"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label>胃十二指肠溃疡</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_sezcky"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label>急性心肌梗死</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_jxxjgs"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label>青光眼</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_qgy"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >活动性结核</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_hdxjh"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >糖尿病</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_tnb"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >精神疾病</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_jsjb"></ion-toggle>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item >
+          <ion-label >骨质疏松</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_gzss"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >寻常型银屑病</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_xcxyxb"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >真菌感染</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_zjgr"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item >
+          <ion-label >铜绿假单孢菌感染</ion-label>
+          <ion-toggle [(ngModel)]="result.info.if_tljdbj"></ion-toggle>
+        </ion-item>
+      </ion-list>
     </ion-list>
   </div>
 </ion-content>
