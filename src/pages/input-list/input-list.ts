@@ -53,10 +53,6 @@ export class InputListPage {
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         this.formDatas = res;
         this.extractResult ();
-        var obj = {
-          "a":"0"
-        }
-        console.log(obj['a'] == false);
         //loading.dismiss();
       })
   }

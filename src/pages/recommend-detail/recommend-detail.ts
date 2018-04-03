@@ -30,51 +30,90 @@ export class RecommendDetailPage {
               public Constant:ConstantProvider,
               public loadingCtrl:LoadingController) {
     this.params = this.navParams.data.parameter;
-    console.log(this.params);
     this.result = this.navParams.data;
 
-    this.recommendLists =  [
-      {
-        label: "方案推荐依据",
-        id:"1",
-        icon:'ios-paper-outline'
-      },
-      {
-        label: "方案介绍",
-        id:'2',
-        icon:'ios-copy-outline'
-      },
-      {
-        label: "降压目标",
-        id:'3',
-        icon:'ios-create-outline'
-      },
-      {
-        label: "相关危险因素处理",
-        id:"4",
-        icon:'ios-paper-outline'
-      },
-      {
-        label: "方案相关文献",
-        id:'5',
-        icon:'ios-copy-outline'
-      },
-      {
-        label: "药品不良反应相关文献",
-        id:'6',
-        icon:'ios-create-outline'
-      },
-      // {
-      //   label: "典型病历",
-      //   id:'7',
-      //   icon:'ios-create-outline'
-      // },
-      {
-        label: "标准来源指南",
-        id:'8',
-        icon:'ios-create-outline'
-      }
-    ]
+    if(this.params.discribe == 'hbp'){
+      this.recommendLists =  [
+        {
+          label: "方案推荐依据",
+          id:"1",
+          icon:'ios-paper-outline'
+        },
+        {
+          label: "方案介绍",
+          id:'2',
+          icon:'ios-copy-outline'
+        },
+        {
+          label: "降压目标",
+          id:'3',
+          icon:'ios-create-outline'
+        },
+        {
+          label: "相关危险因素处理",
+          id:"4",
+          icon:'ios-paper-outline'
+        },
+        {
+          label: "方案相关文献",
+          id:'5',
+          icon:'ios-copy-outline'
+        },
+        {
+          label: "药品不良反应相关文献",
+          id:'6',
+          icon:'ios-create-outline'
+        },
+        // {
+        //   label: "典型病历",
+        //   id:'7',
+        //   icon:'ios-create-outline'
+        // },
+        {
+          label: "标准来源指南",
+          id:'8',
+          icon:'ios-create-outline'
+        }
+      ]
+    }else if(this.params.discribe == 'copd'){
+      this.recommendLists =  [
+        {
+          label: "方案推荐依据",
+          id:"1",
+          icon:'ios-paper-outline'
+        },
+        {
+          label: "方案介绍",
+          id:'2',
+          icon:'ios-copy-outline'
+        },
+        {
+          label: "相关危险因素处理",
+          id:"4",
+          icon:'ios-paper-outline'
+        },
+        {
+          label: "方案相关文献",
+          id:'5',
+          icon:'ios-copy-outline'
+        },
+        {
+          label: "药品不良反应相关文献",
+          id:'6',
+          icon:'ios-create-outline'
+        },
+        // {
+        //   label: "典型病历",
+        //   id:'7',
+        //   icon:'ios-create-outline'
+        // },
+        {
+          label: "标准来源指南",
+          id:'8',
+          icon:'ios-create-outline'
+        }
+      ]
+    }
 
   }
 
