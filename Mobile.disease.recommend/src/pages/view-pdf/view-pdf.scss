@@ -1,0 +1,106 @@
+page-view-pdf {
+  canvas {
+    width:100%;
+    overflow: scroll;
+  }
+  .scroll-content{
+    overflow: scroll;
+  }
+
+  .scroll-box {
+    width:100%;
+    overflow: scroll;
+    margin:0 auto;
+    margin-top:4rem;
+  }
+
+  //去掉input类型为number的上下键
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type="number"]{
+    -moz-appearance: textfield;
+  }
+
+  ion-list-header.list-header{
+    height:0.8rem;
+    width:100%;
+    background-color:#555;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1;
+    margin:0;
+  }
+  .disabled {
+    opacity: 0.3;
+  }
+  ion-list ion-list-header .pageUp{
+    background-color:#555;
+  }
+  ion-list ion-list-header .pageUp ion-icon{
+    margin:0;
+    color:#fff;
+    font-weight:700;
+  }
+  ion-list ion-list-header input{
+    width:4rem;
+    border-radius: 0;
+    border:solid #333 1px;
+    background-color:#888
+  }
+  ion-list ion-list-header span{
+    color:#fff;
+  }
+  ion-list ion-list-header input{
+    color:#fff;
+    text-align: center;
+  }
+
+  .outside{
+    -moz-box-shadow: 0px 1px 5px #c70000; /* 老的 Firefox */
+    box-shadow: 0px 1px 5px #c70000;
+    border:solid #c70000 1px;
+  }
+
+  .splitToolbarButtonRight{
+    padding: 8px 0;
+    width: 1px;
+    background-color: hsla(0,0%,0%,.5);
+    z-index: 99;
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
+    display: inline-block;
+    position: absolute;
+    right:37px;
+    margin:5px 0;
+  }
+  .splitToolbarButtonLeft{
+    padding: 8px 0;
+    width: 1px;
+    background-color: hsla(0,0%,0%,.5);
+    z-index: 99;
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
+    display: inline-block;
+    position: absolute;
+    left:45px;
+    margin:5px 0;
+  }
+  .pageZoom{
+    padding:5px 10px;
+    background-color: transparent;
+    //border:solid #333 1px;
+  }
+  .pageZoomLeft{
+    margin-right:-3px;
+  }
+  .pageZoomRight{
+    margin-left:-3px;
+  }
+  ion-list ion-list-header .pageZoom ion-icon{
+    margin:0;
+    color:#fff;
+    font-weight:700;
+  }
+}

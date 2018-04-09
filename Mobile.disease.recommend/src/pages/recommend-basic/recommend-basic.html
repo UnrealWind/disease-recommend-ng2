@@ -1,0 +1,27 @@
+<ion-content>
+  <div *ngIf="tagFormDatas">
+    <ion-list  *ngFor = "let formData of tagFormDatas;let index = index">
+      <ion-list-header>
+        <ion-icon name="md-desktop" color="danger"></ion-icon>{{formData.label}}
+      </ion-list-header>
+
+      <ion-item *ngFor = "let input of formData.inputs">
+        <h3>{{input.label}}</h3>
+        <p></p>
+        <ion-note item-end>{{input.value}}</ion-note>
+      </ion-item>
+
+      <ion-item *ngIf="formData.inputs.length == 0">
+        <h3>无</h3>
+        <p></p>
+        <ion-note item-end></ion-note>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding>
+      <button ion-button block (click)="back()" >返回</button>
+    </div>
+  </div>
+</ion-content>
+

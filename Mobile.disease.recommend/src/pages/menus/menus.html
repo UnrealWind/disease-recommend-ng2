@@ -1,0 +1,19 @@
+<ion-content>
+  <ion-menu [content]="content" persistent="false">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{plan.label}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list *ngIf="formDatas">
+        <button *ngFor="let formData of formDatas.data;let index = index" ion-item (click)="changePage(formDatas,index)">
+          {{formData.label}}
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-nav id="nav" #content [root]=""></ion-nav>
+
+</ion-content>

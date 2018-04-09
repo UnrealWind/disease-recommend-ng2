@@ -1,0 +1,19 @@
+<ion-content>
+  <ion-list *ngIf="details">
+    <ion-list-header>
+      <ion-icon name="md-desktop" color="danger"></ion-icon>相关危险因素处理
+      <button ion-button outline item-end (click)="back()">返回</button>
+    </ion-list-header>
+    <ion-item *ngFor="let entity of details.data">
+      <h3>{{entity.fieldName}}</h3>
+      <p>{{entity.dangerHandle}}</p>
+    </ion-item>
+    <ion-item *ngIf="(details.data && details.data.length==0) || details==null || details.data==null">
+      <h3>暂无数据.......</h3>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block (click)="back()" >返回</button>
+  </div>
+
+</ion-content>

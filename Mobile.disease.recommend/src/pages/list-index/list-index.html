@@ -1,0 +1,17 @@
+<ion-content>
+
+  <ion-list *ngIf="recordList">
+    <ion-list-header>患者列表</ion-list-header>
+    <ion-searchbar placeholder="请输入患者姓名或id"></ion-searchbar>
+
+    <ion-item *ngFor="let opt of recordList.result" (click)="inputIndex(opt)">
+      <ion-avatar item-start>
+        <img src="./assets/imgs/logo-1.jpg">
+      </ion-avatar>
+      <h3>{{opt.name}} {{opt.pati_id}}</h3>
+      <p>{{opt.diagnosis}}</p>
+      <ion-note item-end>{{opt.admission_date_time}}</ion-note>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,80 @@
+<ion-content>
+  <div *ngIf="details">
+    <ion-list *ngFor="let entity of details.data;let idx = index;">
+      <ion-list-header>
+        <ion-icon name="md-desktop" color="danger"></ion-icon>{{entity.drugClassName}}
+        <button ion-button outline item-end (click)="back()" *ngIf="idx == 0">返回</button>
+      </ion-list-header>
+      <ion-item>
+        <h3>药品作用机理</h3>
+        <p>{{entity.actionPrinciple}}</p>
+      </ion-item>
+      <ion-item class="bad-effect">
+        <h3>主要不良反应</h3>
+        <ul>
+          <li>
+            <p *ngFor="let effect of entity.untowardEffectArray">{{effect}}</p>
+          </li>
+        </ul>
+        <!--<ul>-->
+          <!--<li>-->
+            <!--<p>-->
+              <!--1、体位性低血压-->
+            <!--</p>-->
+            <!--<p>-->
+              <!--β受体阻滞剂降低交感神经张力减少心输出量、降低外周血管阻力；并抑制肾素血管紧张素系统具有良好的降血压作用。因此，体位性低血压也比较常见，尤其在老年患者、剂量比较大时，为避免其发生，应嘱患者在体位变化时动作应缓慢，必要时减少用药剂量。-->
+            <!--</p>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<p>-->
+              <!--2、支气管痉挛-->
+            <!--</p>-->
+            <!--<p>-->
+              <!--为药物对β2受体阻滞作用所致。因此，一般来说禁用于患支气管哮喘和慢性阻塞性肺部疾病的患者。而对于一些肺部疾病较轻，而同时具有β受体阻滞剂治疗强烈适应症（如慢性左心室功能不全、急性心肌梗死）时，可试用β1受体受体选择性较高的药物如比索洛尔，用药后应密切观察患者症状，如无不适，可以进行长期用药。必须提出的是，对β2受体的影响相对较小。在使用剂量较大时，仍然可以表现出对β2受体的阻断作用。-->
+            <!--</p>-->
+          <!--</li>-->
+        <!--</ul>-->
+      </ion-item>
+      <ion-item>
+        <h3>用药提示</h3>
+        <p>{{entity.medicationPrompts}}</p>
+      </ion-item>
+      <ion-item>
+        <h3>适应症状</h3>
+        <p>{{entity.indication}}</p>
+      </ion-item>
+      <ion-item>
+        <h3>禁忌症状</h3>
+        <p *ngIf="!(entity.relativeContraindication == '' || entity.relativeContraindication==null)">{{entity.relativeContraindication}}</p>
+        <p *ngIf="entity.relativeContraindication == '' || entity.relativeContraindication==null">无</p>
+      </ion-item>
+      <ion-item>
+        <h3>注意事项</h3>
+        <ul>
+          <li>
+            <p *ngFor="let attention of entity.attentionArray">{{attention}}</p>
+          </li>
+        </ul>
+      </ion-item>
+
+      <ion-item>
+        <ion-list>
+          <h3>常见药品</h3>
+          <ion-item *ngFor="let drug of entity.commonDrugs">
+            <h3>{{drug.drugName}}</h3>
+            <p>达峰时间:	{{drug.peakTime}} &nbsp;&nbsp;半衰期（小时）:{{drug.halfLife}} ;&nbsp;&nbsp; 每天剂量（mg）:{{drug.dosage}} </p>
+            <ion-note item-end>分服次数:{{drug.frequency}}</ion-note>
+          </ion-item>
+        </ion-list>
+
+      </ion-item>
+    </ion-list>
+    <ion-item *ngIf="(details.data && details.data.length==0) || details==null || details.data==null">
+      <h3>暂无数据.......</h3>
+    </ion-item>
+  </div>
+
+  <div padding>
+    <button ion-button block (click)="back()" >返回</button>
+  </div>
+</ion-content>
