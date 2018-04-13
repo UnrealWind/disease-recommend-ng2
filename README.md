@@ -2,10 +2,8 @@
 
 ### 目前只含高血压推荐
 
-
-### 之前通过svn提交了过多的无用文件，目前根据gitignore排除了无用文件，大家在提交的时候需要进行本地git缓存清除操作以排除不需要提交的文件
-### 清除过以后就用执行下面这句了，直接add . 
-### git rm -r --cached .
+### git reset --hard 清除所有.add 的操作
+### git rm -r --cached filePath  递归清除过多提交的文件
 ### git add .
 ### git commit -m 'your word'
 ### git push   
