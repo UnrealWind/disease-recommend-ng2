@@ -2,31 +2,32 @@
 <ion-content>
 
   <ion-list>
-    <ion-list-header>
-      <ion-icon name="md-desktop" color="danger"></ion-icon>{{params.type}}
-      <button ion-button outline item-end (click)="back()">返回</button>
-    </ion-list-header>
-    <ion-item *ngIf="suggestList" class="recommend-list">
-      <h3 *ngIf="suggestList.length>0" (click)="viewRecommendReson()" class="content">{{suggestList[0]}}</h3>
-      <h3 *ngIf="suggestList.length==0 || suggestList==null">暂无数据.......</h3>
-    </ion-item>
+    <ion-list class="list-no-border">
+      <ion-list-header>
+        <ion-icon name="md-help-circle" color="secondary"></ion-icon>{{params.type}}
+        <button ion-button outline item-end (click)="back()">返回</button>
+      </ion-list-header>
+      <ion-item *ngIf="suggestList&&suggestList.length>0" (click)="viewRecommendReson()" class="recommend-list">
+        <p class="item-result">{{suggestList[0]}}</p>
+        <!--<h3 *ngIf="suggestList.length>0" (click)="viewRecommendReson()" class="content">{{suggestList[0]}}</h3>-->
+      </ion-item>
+      <ion-item *ngIf="suggestList&&(suggestList.length==0 || suggestList==null)" item-error>
+        <h3>暂无数据.......</h3>
+      </ion-item>
+    </ion-list>
 
-    <ion-list-header>
-      <ion-icon name="md-desktop" color="danger"></ion-icon>{{params.name}}
-      <!--<button ion-button outline item-end (click)="back()">返回</button>-->
-    </ion-list-header>
+    <ion-list class="list-parent">
+      <ion-list-header>
+        <ion-icon name="md-list" color="secondary"></ion-icon>{{params.name}}
+        <!--<button ion-button outline item-end (click)="back()">返回</button>-->
+      </ion-list-header>
+      <div *ngIf="recommendLists" >
+        <button ion-item *ngFor="let recommendList of recommendLists;let idx = index" (click)="viewRecommendDetail(recommendList)">
+          <h3>{{recommendList.label}}</h3>
+        </button>
+      </div>
 
-    <ion-grid *ngIf="recommendLists">
-      <ion-row class="col-project">
-        <ion-col col-4 *ngFor="let recommendList of recommendLists;let idx = index" (click)="viewRecommendDetail(recommendList)"
-                 [ngClass]="{noBorder:(idx+1)%3 == 0}">
-          <ion-icon name="{{recommendList.icon}}" color="primary"></ion-icon>
-          <ion-label>{{recommendList.label}}</ion-label>
-        </ion-col>
-
-      </ion-row>
-    </ion-grid>
+    </ion-list>
   </ion-list>
-
 
 </ion-content>

@@ -1,42 +1,42 @@
-<ion-content>
-  <ion-list *ngIf="schemeList">
+<ion-content class="list-avatar-page">
+  <ion-list *ngIf="schemeList" class="list-secondary list-parent">
     <ion-list-header>
-      <ion-icon name="md-desktop" color="danger"></ion-icon>推荐方案列表
+      <ion-icon name="md-list-box" color="secondary"></ion-icon>推荐方案列表
     </ion-list-header>
-    <ion-item (click)="viewRecommendDetail(entity,'推荐理由')" *ngFor="let entity of schemeList">
-      <h3>{{entity.recomName}}</h3>
+    <button ion-item (click)="viewRecommendDetail(entity,'推荐理由')" *ngFor="let entity of schemeList">
+      <h2>{{entity.recomName}}</h2>
       <p>{{entity.drugNames}}</p>
       <ion-note item-end>{{entity.type}}</ion-note>
-    </ion-item>
-    <ion-item *ngIf="schemeList.length==0 || schemeList==null">
+    </button>
+    <ion-item *ngIf="schemeList.length==0 || schemeList==null" item-error>
       <h3>暂无数据.......</h3>
     </ion-item>
   </ion-list>
 
-  <ion-list *ngIf="relativeList">
+  <ion-list *ngIf="relativeList" class="list-warning list-parent">
     <ion-list-header>
-      <ion-icon name="md-desktop" color="danger"></ion-icon>相对禁忌
+      <ion-icon name="md-information-circle" class="warning"></ion-icon>相对禁忌
     </ion-list-header>
-    <ion-item *ngFor="let entity of relativeList" (click)="viewRecommendDetail(entity,'相对禁忌理由')" >
+    <button ion-item *ngFor="let entity of relativeList" (click)="viewRecommendDetail(entity,'相对禁忌理由')" >
       <h3>{{entity.drug_name}}</h3>
       <p>{{entity.drug_names.label}}</p>
       <ion-note item-end>{{entity.type}}</ion-note>
-    </ion-item>
-    <ion-item *ngIf="relativeList.length==0 || relativeList==null">
+    </button>
+    <ion-item *ngIf="relativeList.length==0 || relativeList==null" item-error>
       <h3>暂无数据.......</h3>
     </ion-item>
   </ion-list>
 
-  <ion-list *ngIf="absoluteList">
+  <ion-list *ngIf="absoluteList" class="list-danger list-parent">
     <ion-list-header>
-      <ion-icon name="md-desktop" color="danger"></ion-icon>绝对禁忌
+      <ion-icon name="md-remove-circle" color="danger"></ion-icon>绝对禁忌
     </ion-list-header>
-    <ion-item *ngFor="let entity of absoluteList" (click)="viewRecommendDetail(entity,'绝对禁忌理由')" >
+    <button ion-item *ngFor="let entity of absoluteList" (click)="viewRecommendDetail(entity,'绝对禁忌理由')" >
       <h3>{{entity.drug_name}}</h3>
       <p>{{entity.drug_names.label}}</p>
       <ion-note item-end>{{entity.type}}</ion-note>
-    </ion-item>
-    <ion-item *ngIf="absoluteList.length==0 || absoluteList==null">
+    </button>
+    <ion-item *ngIf="absoluteList.length==0 || absoluteList==null" item-error>
       <h3>暂无数据.......</h3>
     </ion-item>
   </ion-list>

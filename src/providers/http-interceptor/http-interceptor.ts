@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor,HttpRequest,HttpHandler,HttpSentEvent,HttpHeaderResponse,
   HttpProgressEvent,HttpResponse,HttpUserEvent } from '@angular/common/http';
 
+import { NavController, App,LoadingController} from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+import { PageErrorPage} from "../../pages/page-error/page-error";
+
 import { Observable } from "rxjs/Observable";
 import { NotifyService } from 'ngx-notify';
 import 'rxjs/add/operator/mergeMap';
@@ -10,10 +14,19 @@ import 'rxjs/add/observable/throw'
 
 @Injectable()
 export class Interceptor implements HttpInterceptor {
-
-  constructor(private notifySrv: NotifyService) {}
+  loading;
+  constructor(private notifySrv: NotifyService,
+              public alertCtrl:AlertController,
+              public appCtrl : App,
+              public loadingCtrl:LoadingController) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
+    this.loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: '加载中……'
+    });
+    this.loading.present();
+
     const Req = req.clone({
 
       //以后可能会将eu,ep放在header里,
@@ -25,32 +38,67 @@ export class Interceptor implements HttpInterceptor {
     return next
       .handle(Req)
       .mergeMap((event: any) => {
-
         //这里可以通过各种情况抛出异常
         if (event instanceof HttpResponse && event.status !== 200) {
+          this.loading._state == 1 ? this.loading.dismiss() : undefined;
           return Observable.create(observer => observer.error(event));
         }
-
+        //正常操作,
+        this.loading._state == 1 ? this.loading.dismiss() : undefined;
         return Observable.create(observer => observer.next(event));
       })
-      .catch((res: HttpResponse<any>) => {
+      .catch((res: HttpResponse<any>) => {  //只有链接报错才会触发,进行其他操作
+        this.loading._state == 1 ? this.loading.dismiss() : undefined;
         switch (res.status) {
           case 401:
             // 权限处理
             location.href = ''; // 重新登录
             break;
-          case 200:
-            //this.notifySrv.success('200', `请求成功`);
-            break;
           case 404:
-            this.notifySrv.error('404', `API不存在`);
+            this.showError(404);
             break;
           case 500:
-            this.notifySrv.error('500', `后台报错`);
+            this.showError(500);
             break;
         }
         // 以错误的形式结束本次请求
         return Observable.throw(res);
       })
+  }
+
+  showError(status:number){
+    let activeNav: NavController = this.appCtrl.getActiveNav(),
+      message = '哎呀,页面找不到了!!!',
+      canGoBack = activeNav.canGoBack();
+    console.log(activeNav)
+
+    if(status == 500){
+      message = '哎呀,服务器出错了!!!';
+    }else{
+
+    }
+    if(canGoBack){
+      let confirm = this.alertCtrl.create({
+        title: '错误提示',
+        message: message,
+        buttons: [
+          {
+            text: "刷新",
+            handler: () => {
+
+            }
+          },{
+            text: "返回",
+            handler: () => {
+              activeNav.pop();
+            }
+          }
+
+        ]
+      });
+      confirm.present();
+    }else{
+      activeNav.push(PageErrorPage);
+    }
   }
 }

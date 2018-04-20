@@ -1,15 +1,18 @@
+.content{
+  background:#eee;
+}
+
 .list{
   margin:0;
-  border-top:1px solid #ccc;
 }
 .item {
   font-size:1.3rem;
 }
 .list-header{
-  background-color: #f6f6f6;
+  background-color: #fff;
 }
 .list-ios > .item-block:first-child,.list-ios > .item-block:last-child {
-  border:0;
+  //border:0;
 }
 ion-list{
   .list-header {
@@ -17,7 +20,7 @@ ion-list{
   }
   ion-list-header {
     ion-label {
-      font-size:1.4rem;
+      font-size:1.6rem;
     }
     ion-icon {
       margin:0 0.5rem 0 0;
@@ -59,4 +62,75 @@ ion-list{
   padding-left:2rem;
   margin: 5px;
   border-radius: 4px;
+}
+
+//表单list样式
+.list-parent button.item,.list-parent > ion-item {
+  margin-left: 0.1rem;
+  margin-top: 0.7rem;
+  border:none;
+  border-left:4px solid #32db64;
+  padding-left: 3.3rem;
+  .item-inner{
+    border:none;
+  }
+
+  &:last-child{
+    margin-bottom: 0.7rem;
+  }
+}
+.list-parent > ion-item[item-error]{
+  padding-left:3.3rem;
+}
+.list-no-border{
+  .item,button.item{
+    margin-top: 0.7rem;
+    border:none;
+
+    &:last-child{
+      margin-bottom: 0.7rem;
+    }
+  }
+  .item[item-error]{
+    padding-left:3.3rem;
+  }
+}
+//文本信息的展示
+.list{
+  .item{
+    p.item-result{
+      white-space: normal;
+      text-indent: 1rem;
+      line-height: 2rem;
+    }
+  }
+}
+//选择框设置
+.action-sheet-ios{
+  .action-sheet-title{
+    font-size: 1.7rem;
+  }
+  .action-sheet-button{
+    font-size: 1.5rem;
+  }
+}
+//字体等颜色
+.warning{
+  color: #ffc107;
+}
+//错误提示弹框
+.alert-wrapper{
+  .alert-button-group{
+    button{
+      border-top: 1px solid #dbdbdf;
+
+      &:first-child{
+        border-right: 1px solid #dbdbdf;
+      }
+    }
+  }
+}
+
+.list:not(.list-parent) > .list-header-ios{
+  border-bottom: 1px solid #aaa;
 }

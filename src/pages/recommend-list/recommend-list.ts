@@ -37,13 +37,13 @@ export class RecommendListPage {
 
   //这个ng是angularjs用于自己掌握数据初始化渲染的入口，只执行一次的，慢于constructor,后者是原生es6
   ngOnInit(): void {
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    loading.present();
+    // let loading = this.loadingCtrl.create({
+    //   spinner: 'crescent',
+    //   content: '加载中……'
+    // });
+    // loading.present();
     //this.getDoctor();
-    this.getRecommend(loading);
+    this.getRecommend();
   }
 
   /*getDoctor (){
@@ -67,7 +67,7 @@ export class RecommendListPage {
       })
   }*/
 
-  getRecommend (loading){
+  getRecommend (){
     var url = this.Constant.BackstageUrl + this.params.discribe +'/recommendation?';
     this.Http.post(url+'class_id='+this.params.classId,this.recommend)
       .subscribe((res:Response)=>{
@@ -75,7 +75,7 @@ export class RecommendListPage {
         this.schemeList = this.filterScheme(this.recommendList.data.recom_scheme);//推荐方案列表
         this.absoluteList = this.recommendList.data.absolute_contraindication;//绝对列表
         this.relativeList = this.recommendList.data.relative_contraindication;//相对列表
-        loading.dismiss();
+        // loading.dismiss();
       })
   }
 

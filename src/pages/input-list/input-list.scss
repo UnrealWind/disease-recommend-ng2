@@ -1,11 +1,12 @@
 page-input-list {
-  .list {
-    border-top: 1px solid #ccc ;
+  .list-parent{
+    .item{
+      input{
+        text-align: right;
+        padding-right: 1rem;
+      }
+    }
   }
-  .list-ios > .item-block:first-child {
-    border-top:0;
-  }
-
   .fab[mini] .fab-close-icon {
     line-height:2.7rem;
   }
@@ -19,9 +20,44 @@ page-input-list {
     height:2.7rem;
   }
 
-  ion-fab[top][edge] {
-    top:0px;
-    right:9rem;
+  .jumpButtons {
+    top:0.5rem;
+    right:1rem;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    -webkit-display:flex ;
+    -webkit-align-items: center;
+
+    .mat-chip-list{
+      display: inline-block;
+      margin-right:0.5rem;
+
+      .mat-chip{
+        line-height: 1.3rem;
+        background-color: #fff;
+
+        &:first-child{
+          color:#673ab7;
+          border:1px solid #673ab7;
+        }
+        &:last-child{
+          color:#488aff;
+          border:1px solid #488aff;
+        }
+      }
+    }
+
+    .button-ios{
+      height: 24px;
+      font-size: 1.3rem;
+      padding: 1.2rem 0.5rem;
+      background-color: #fff;
+    }
+  }
+  .matChipView.mat-chip:not(.mat-basic-chip){
+    background-color: #fff;
+    border:1px solid #488aff;
   }
 
   ion-fab-list {
@@ -60,6 +96,4 @@ page-input-list {
       }
     };
   }
-
-
 }

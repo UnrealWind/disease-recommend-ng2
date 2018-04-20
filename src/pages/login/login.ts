@@ -28,5 +28,4 @@ export class LoginPage {
 
     this.navCtrl.push(TabsPage,{ 'id': 1 })
   }
-
 }

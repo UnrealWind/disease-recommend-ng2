@@ -45,6 +45,8 @@ import { PlanLiteraturePage} from "../pages/plan-literature/plan-literature";
 import { TypicalRecordPage} from "../pages/typical-record/typical-record";
 //查看文献
 import { ViewPdfPage} from "../pages/view-pdf/view-pdf";
+//错误页面
+import { PageErrorPage} from "../pages/page-error/page-error";
 
 //表单组件
 import { FormComponent } from "../components/form/form"
@@ -68,6 +70,8 @@ import {RiskFactorPageModule} from "../pages/risk-factor/risk-factor.module";
 import {PlanLiteraturePageModule} from "../pages/plan-literature/plan-literature.module";
 import {TypicalRecordPageModule} from "../pages/typical-record/typical-record.module";
 import {ViewPdfPageModule} from "../pages/view-pdf/view-pdf.module";
+import {PageErrorPageModule} from "../pages/page-error/page-error.module";
+import { ErrorTipProvider } from '../providers/error-tip/error-tip';
 
 //这里配置的是需要对外暴露url访问模式的地方
 export const deepLinkConfig: DeepLinkConfig = {
@@ -111,7 +115,8 @@ export const deepLinkConfig: DeepLinkConfig = {
     RiskFactorPageModule,
     PlanLiteraturePageModule,
     TypicalRecordPageModule,
-    ViewPdfPageModule
+    ViewPdfPageModule,
+    PageErrorPageModule
     //MenusPage
   ],
   bootstrap: [IonicApp],
@@ -134,7 +139,8 @@ export const deepLinkConfig: DeepLinkConfig = {
     RiskFactorPage,
     PlanLiteraturePage,
     TypicalRecordPage,
-    ViewPdfPage
+    ViewPdfPage,
+    PageErrorPage
     //MenusPage
   ],
   providers: [
@@ -142,7 +148,8 @@ export const deepLinkConfig: DeepLinkConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true},
-    ConstantProvider
+    ConstantProvider,
+    ErrorTipProvider
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

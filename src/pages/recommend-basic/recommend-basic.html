@@ -1,8 +1,9 @@
 <ion-content>
   <div *ngIf="tagFormDatas">
-    <ion-list  *ngFor = "let formData of tagFormDatas;let index = index">
+    <ion-list  *ngFor = "let formData of tagFormDatas;let index = index" class="list-parent">
       <ion-list-header>
-        <ion-icon name="md-desktop" color="danger"></ion-icon>{{formData.label}}
+        <!--<ion-icon name="md-desktop" color="danger"></ion-icon>-->
+        {{formData.label}}
       </ion-list-header>
 
       <ion-item *ngFor = "let input of formData.inputs">
