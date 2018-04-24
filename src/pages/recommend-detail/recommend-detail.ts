@@ -122,16 +122,16 @@ export class RecommendDetailPage {
   }
 
   ngOnInit(): void {
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    loading.present();
+    // let loading = this.loadingCtrl.create({
+    //   spinner: 'crescent',
+    //   content: '加载中……'
+    // });
+    // loading.present();
 
     this.Http.get( this.Constant.BackstageUrl + this.params.discribe +'/recommendation/reason?id='+this.params.id+'&uuid='+this.params.uuid+"&class_id="+this.params.classId)
       .subscribe((res:Response)=>{
         this.suggestList = res;
-        loading.dismiss();
+        // loading.dismiss();
       })
   }
 

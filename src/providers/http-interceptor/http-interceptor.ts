@@ -7,7 +7,7 @@ import { AlertController } from 'ionic-angular';
 import { PageErrorPage} from "../../pages/page-error/page-error";
 
 import { Observable } from "rxjs/Observable";
-import { NotifyService } from 'ngx-notify';
+// import { NotifyService } from 'ngx-notify';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw'
@@ -15,8 +15,7 @@ import 'rxjs/add/observable/throw'
 @Injectable()
 export class Interceptor implements HttpInterceptor {
   loading;
-  constructor(private notifySrv: NotifyService,
-              public alertCtrl:AlertController,
+  constructor(public alertCtrl:AlertController,
               public appCtrl : App,
               public loadingCtrl:LoadingController) {}
 
@@ -63,6 +62,7 @@ export class Interceptor implements HttpInterceptor {
         }
         // 以错误的形式结束本次请求
         return Observable.throw(res);
+        // return Observable.create(observer => observer.error(res));
       })
   }
 
@@ -70,7 +70,6 @@ export class Interceptor implements HttpInterceptor {
     let activeNav: NavController = this.appCtrl.getActiveNav(),
       message = '哎呀,页面找不到了!!!',
       canGoBack = activeNav.canGoBack();
-    console.log(activeNav)
 
     if(status == 500){
       message = '哎呀,服务器出错了!!!';
@@ -82,12 +81,13 @@ export class Interceptor implements HttpInterceptor {
         title: '错误提示',
         message: message,
         buttons: [
+          // {
+          //   text: "刷新",
+          //   handler: () => {
+          //
+          //   }
+          // },
           {
-            text: "刷新",
-            handler: () => {
-
-            }
-          },{
             text: "返回",
             handler: () => {
               activeNav.pop();

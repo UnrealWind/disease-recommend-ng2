@@ -19,21 +19,21 @@ export class RecommendBasicPage {
   }
 
   ngOnInit(): void {
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    this.getFormDatas (loading);
+    // let loading = this.loadingCtrl.create({
+    //   spinner: 'crescent',
+    //   content: '加载中……'
+    // });
+    this.getFormDatas ();
 
   }
 
-  getFormDatas (loading){
+  getFormDatas (){
     this.Http.get('../../assets/data/formDatas'+this.params.parameter.classId+'.json',{})
       .subscribe((res:Response)=>{
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         this.formDatas = res;
         this.addValue();
-        loading.dismiss();
+        // loading.dismiss();
       })
   }
 

@@ -27,17 +27,17 @@ export class ViewPdfPage {
   }
 
   ngOnInit(): void{
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    loading.present();
+    // let loading = this.loadingCtrl.create({
+    //   spinner: 'crescent',
+    //   content: '加载中……'
+    // });
+    // loading.present();
     this.tagPDFUrl = this.Constant.BackstageUrl+this.params.discribe+'/literature/'+this.params.type+'/'+this.params.id
-    this.viewPDF (loading);
+    this.viewPDF ();
   }
 
 
-  viewPDF (loading){
+  viewPDF (){
     var url = this.tagPDFUrl;
     var that = this;
 
@@ -74,7 +74,7 @@ export class ViewPdfPage {
       //   });
       // });
       //消除加载中的提示
-      loading.dismiss()
+      // loading.dismiss()
     }, function (reason) {
       console.error(reason);
     });

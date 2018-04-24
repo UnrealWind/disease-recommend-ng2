@@ -21,18 +21,18 @@ export class MenusPage {
     this.plan = this.navParams.data.plan;
   }
   ngOnInit(): void {
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    loading.present();
-    this.getFormDatas(loading);
+    // let loading = this.loadingCtrl.create({
+    //   spinner: 'crescent',
+    //   content: '加载中……'
+    // });
+    // loading.present();
+    this.getFormDatas();
   }
-  getFormDatas (loading){
+  getFormDatas (){
     this.Http.get('./assets/data/formDatas100037.json',{})
       .subscribe((res:Response)=>{
         this.formDatas = res;
-        loading.dismiss();
+        // loading.dismiss();
         this.nav.setRoot(InputListPage,{"formDatas":this.formDatas,"idx":0})
       })
   }

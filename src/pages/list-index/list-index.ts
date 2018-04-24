@@ -23,16 +23,16 @@ export class ListIndexPage {
   }
 
   ngOnInit(): void {
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
+    // let loading = this.loadingCtrl.create({
+    //   spinner: 'crescent',
+    //   content: '加载中……'
+    // });
 
-    loading.present();
-    this.getRecordList(loading);
+    // loading.present();
+    this.getRecordList();
   }
 
-  getRecordList (loading){
+  getRecordList (){
     let urlBack = 'filter_pageNo=1' +
       '&filter_pageSize=10' +
       '&filter_disease='+this.plan.class_id+
@@ -44,7 +44,7 @@ export class ListIndexPage {
     this.Http.get(this.constant.BackstageUrl+'patient/list?'+urlBack,{})
       .subscribe((res:Response)=>{
         this.recordList = res;
-        loading.dismiss();
+        // loading.dismiss();
       })
   }
 

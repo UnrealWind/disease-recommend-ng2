@@ -66,17 +66,18 @@ ion-list{
 
 //表单list样式
 .list-parent button.item,.list-parent > ion-item {
-  margin-left: 0.1rem;
+  margin-left: 0.3rem;
   margin-top: 0.7rem;
   border:none;
   border-left:4px solid #32db64;
   padding-left: 3.3rem;
   .item-inner{
-    border:none;
+    border:none !important;
   }
 
   &:last-child{
     margin-bottom: 0.7rem;
+    border-bottom:none !important;
   }
 }
 .list-parent > ion-item[item-error]{
@@ -87,13 +88,21 @@ ion-list{
     margin-top: 0.7rem;
     border:none;
 
+    .item-inner{
+      border:none !important;
+    }
+
     &:last-child{
       margin-bottom: 0.7rem;
+      border-bottom:none !important;
     }
   }
   .item[item-error]{
     padding-left:3.3rem;
   }
+}
+.list > .list-header-ios{
+  border:none;
 }
 //文本信息的展示
 .list{
@@ -131,6 +140,7 @@ ion-list{
   }
 }
 
-.list:not(.list-parent) > .list-header-ios{
-  border-bottom: 1px solid #aaa;
+input{
+  //transform:translate3d(0px,0px,0px) !important;
+  transform:none !important;
 }

@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams,Nav,FabContainer,LoadingController}
 import { RecommendListPage} from "../recommend-list/recommend-list";
 import { HttpClient } from "@angular/common/http";
 import { ConstantProvider} from "../../providers/constant/constant";
-import { ErrorTipProvider} from "../../providers/error-tip/error-tip";
 import * as $ from 'jquery';
 
 @IonicPage()
@@ -20,8 +19,7 @@ export class InputListPage {
               public navParams: NavParams,
               public Http:HttpClient,
               public loadingCtrl:LoadingController,
-              public constant:ConstantProvider,
-              public error:ErrorTipProvider,){
+              public constant:ConstantProvider){
       this.parameter = {
         "discribe":"",
         "class_id":""
@@ -50,11 +48,12 @@ export class InputListPage {
   }
 
   getFormDatas (){
-    this.Http.get('../../assets/data/formDatas'+this.parameter.class_id+'.json',{})
+    var _this = this;
+    _this.Http.get('../../assets/data/formDatas'+this.parameter.class_id+'.json',{})
       .subscribe((res:Response)=>{
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
-        this.formDatas = res;
-        this.extractResult ();
+        _this.formDatas = res;
+        _this.extractResult ();
         //loading.dismiss();
       })
   }
@@ -79,18 +78,16 @@ export class InputListPage {
 
     this.Http.get(this.constant.BackstageUrl+this.parameter.discribe+'/patient/info'+parameter,{})
       .subscribe((res:Response)=>{
-        console.log(res,999)
         this.result = res;
         for(var i in this.result.info){
           this.result.info[i] == 1?this.result.info[i] =true:undefined;
         }
         // loading.dismiss();
-      },error => {
-        console.log(error,1234567888)
       })
   }
 
   viewRecommend (){
+    // var test = this.error.out(this.getFormDatas);
     var idx = 0
     for (var i in this.result.info){
       idx++;
@@ -100,9 +97,9 @@ export class InputListPage {
 
     this.navCtrl.push(RecommendListPage,{ 'result': this.result.info,'parameter':this.parameter});
   }
-  
+
   openFAB() {
-    //console.log('open');
+    console.log('open');
   }
 
   goHref(idx: number, fab: FabContainer) {

@@ -21,17 +21,17 @@ export class PlanIntroducePage {
   }
 
   ngOnInit(): void{
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    loading.present();
+    // let loading = this.loadingCtrl.create({
+    //   spinner: 'crescent',
+    //   content: '加载中……'
+    // });
+    // loading.present();
 
     this.Http.get(this.Constant.BackstageUrl+this.params.discribe +'/recommendation/introduce?uuid='+this.params.uuid+'&id='+this.params.id)
       .subscribe((res:Response)=>{
         this.details = res;
         this.details = this.filter(this.details);
-        loading.dismiss();
+        // loading.dismiss();
       })
   }
 

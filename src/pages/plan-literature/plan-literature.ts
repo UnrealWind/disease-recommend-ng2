@@ -22,27 +22,27 @@ export class PlanLiteraturePage {
   }
 
   ngOnInit(): void{
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    loading.present();
+    // let loading = this.loadingCtrl.create({
+    //   spinner: 'crescent',
+    //   content: '加载中……'
+    // });
+    // loading.present();
 
     if(this.params.tabType == 'plan'){
-      this.getDetails('/scheme/literature',loading);
+      this.getDetails('/scheme/literature');
     }else if(this.params.tabType == 'drug') {
-      this.getDetails('/drug/literature',loading);
+      this.getDetails('/drug/literature');
     }
     else if(this.params.tabType == 'source'){
-      this.getDetails('/guide',loading);
+      this.getDetails('/guide');
     }
   }
 
-  getDetails (url,loading){
+  getDetails (url){
     this.Http.get(this.Constant.BackstageUrl+this.params.discribe+url+'?id='+this.params.id+'&uuid='+this.params.uuid)
       .subscribe((res:Response)=>{
         this.details = res;
-        loading.dismiss();
+        // loading.dismiss();
       })
   }
 

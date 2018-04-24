@@ -20,16 +20,16 @@ export class TypicalRecordPage {
   }
 
   ngOnInit(): void{
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    loading.present();
+    // let loading = this.loadingCtrl.create({
+    //   spinner: 'crescent',
+    //   content: '加载中……'
+    // });
+    // loading.present();
 
     this.Http.get(this.Constant.BackstageUrl + this.params.discribe +'/typical/cases?id='+this.params.id+'&uuid='+this.params.uuid)
       .subscribe((res:Response)=>{
         this.details = res;
-        loading.dismiss();
+        // loading.dismiss();
       })
   }
 
