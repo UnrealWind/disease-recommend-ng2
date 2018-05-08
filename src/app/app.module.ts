@@ -71,7 +71,6 @@ import {PlanLiteraturePageModule} from "../pages/plan-literature/plan-literature
 import {TypicalRecordPageModule} from "../pages/typical-record/typical-record.module";
 import {ViewPdfPageModule} from "../pages/view-pdf/view-pdf.module";
 import {PageErrorPageModule} from "../pages/page-error/page-error.module";
-import { ErrorTipProvider } from '../providers/error-tip/error-tip';
 
 //这里配置的是需要对外暴露url访问模式的地方
 export const deepLinkConfig: DeepLinkConfig = {
@@ -148,8 +147,7 @@ export const deepLinkConfig: DeepLinkConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true},
-    ConstantProvider,
-    ErrorTipProvider
+    ConstantProvider
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
