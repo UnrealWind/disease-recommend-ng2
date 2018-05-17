@@ -14,6 +14,10 @@
 .list-ios > .item-block:first-child,.list-ios > .item-block:last-child {
   //border:0;
 }
+
+ion-label >p {
+  white-space: normal;
+}
 ion-list{
   .list-header {
     margin-top:0 !important;
@@ -103,6 +107,7 @@ ion-list{
 }
 .list > .list-header-ios{
   border:none;
+  text-transform:none;
 }
 //文本信息的展示
 .list{

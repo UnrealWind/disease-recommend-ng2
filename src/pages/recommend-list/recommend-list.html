@@ -9,7 +9,7 @@
       <ion-note item-end>{{entity.type}}</ion-note>
     </button>
     <ion-item *ngIf="schemeList.length==0 || schemeList==null" item-error>
-      <h3>暂无数据.......</h3>
+      <h3>无推荐方案</h3>
     </ion-item>
   </ion-list>
 
@@ -23,7 +23,7 @@
       <ion-note item-end>{{entity.type}}</ion-note>
     </button>
     <ion-item *ngIf="relativeList.length==0 || relativeList==null" item-error>
-      <h3>暂无数据.......</h3>
+      <h3>无相对禁忌方案</h3>
     </ion-item>
   </ion-list>
 
@@ -37,7 +37,7 @@
       <ion-note item-end>{{entity.type}}</ion-note>
     </button>
     <ion-item *ngIf="absoluteList.length==0 || absoluteList==null" item-error>
-      <h3>暂无数据.......</h3>
+      <h3>无绝对禁忌方案</h3>
     </ion-item>
   </ion-list>
 

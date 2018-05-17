@@ -20,12 +20,7 @@ export class Interceptor implements HttpInterceptor {
               public loadingCtrl:LoadingController) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
-    this.loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: '加载中……'
-    });
-    this.loading.present();
-
+    var that = this;
     const Req = req.clone({
 
       //以后可能会将eu,ep放在header里,
@@ -34,9 +29,21 @@ export class Interceptor implements HttpInterceptor {
         .set('ep','c4843ad54897b3f8a45de8807a89bc76')
     });
 
+    this.loading = that.loadingCtrl.create({
+      spinner: 'crescent',
+      content: '加载中……'
+    });
+
+    //由于angular 预加载loading时虽然js已加载但是图片并未加载完毕导致初始页面存在未加载的图片，所以在这里默认加载
+    //json文件的话就不再进行loading的提示了
+    Req.url.indexOf("json")== -1?(function () {
+      that.loading.present();
+    })():undefined;
+
     return next
       .handle(Req)
       .mergeMap((event: any) => {
+
         //这里可以通过各种情况抛出异常
         if (event instanceof HttpResponse && event.status !== 200) {
           this.loading._state == 1 ? this.loading.dismiss() : undefined;

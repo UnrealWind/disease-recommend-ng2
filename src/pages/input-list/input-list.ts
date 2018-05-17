@@ -49,7 +49,7 @@ export class InputListPage {
 
   getFormDatas (){
     var _this = this;
-    _this.Http.get('../../assets/data/formDatas'+this.parameter.class_id+'.json',{})
+    _this.Http.get('../../assets/data/formDatas'+this.parameter.class_id+'.json?noLoading=true',{})
       .subscribe((res:Response)=>{
         //这里是不能够直接从res中获取其中的对象的，会直接报错，但是运行后再修改回来则无恙，略坑
         _this.formDatas = res;
