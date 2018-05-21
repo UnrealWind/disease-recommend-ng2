@@ -6,7 +6,7 @@
       "inputs": [
         {
           "label": "稳定期",
-          "value": "0",
+          "value": "1",
           "type": "下拉菜单",
           "switchChecked": "",
           "children": [],
@@ -183,7 +183,7 @@
         },
         {
           "label": "PaO2",
-          "value": "0",
+          "value": "",
           "type": "下拉菜单",
           "switchChecked": "",
           "children": [],

@@ -19,7 +19,7 @@
     </ion-list-header>
     <button ion-item *ngFor="let entity of relativeList" (click)="viewRecommendDetail(entity,'相对禁忌理由')" >
       <h3>{{entity.drug_name}}</h3>
-      <p>{{entity.drug_names.label}}</p>
+      <p *ngIf="entity.drug_names && entity.drug_names.label">{{entity.drug_names.label}}</p>
       <ion-note item-end>{{entity.type}}</ion-note>
     </button>
     <ion-item *ngIf="relativeList.length==0 || relativeList==null" item-error>

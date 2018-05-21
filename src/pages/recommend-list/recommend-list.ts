@@ -73,8 +73,8 @@ export class RecommendListPage {
       .subscribe((res:Response)=>{
         this.recommendList = res;
         this.schemeList = this.filterScheme(this.recommendList.data.recom_scheme);//推荐方案列表
-        this.absoluteList = this.recommendList.data.absolute_contraindication;//绝对列表
-        this.relativeList = this.recommendList.data.relative_contraindication;//相对列表
+        this.absoluteList = this.checkRemoval(this.recommendList.data.absolute_contraindication);//绝对列表
+        this.relativeList = this.checkRemoval(this.recommendList.data.relative_contraindication);//相对列表
         // loading.dismiss();
       })
   }
@@ -102,6 +102,23 @@ export class RecommendListPage {
       list = [];
     }
     return list;
+  }
+
+  /**
+   * 相对禁忌和绝对禁忌去重
+   * @param list
+   * @returns {Array}
+     */
+  checkRemoval (list){
+     let arr = [];
+     let obj = {};
+     list.forEach(function(entity,idx){
+       if(!obj[entity.uuid]){
+         arr.push(entity);
+         obj[entity.uuid] = 1;
+       }
+    });
+    return arr;
   }
 
   viewRecommendDetail(entity,type){
