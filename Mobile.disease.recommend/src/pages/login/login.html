@@ -1,0 +1,18 @@
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" floating>用户名</ion-label>
+      <ion-input [(ngModel)]="uesrName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>密码</ion-label>
+      <ion-input [(ngModel)]="passWord"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button block (click)="login()" >登录</button>
+  </div>
+</ion-content>
